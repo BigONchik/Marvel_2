@@ -1,15 +1,9 @@
-import { useEffect } from "react";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import React, { useEffect, useState } from "react";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
-import favoritesIcon from "../../assets/heart.svg";
 
-function NavScrollExample() {
+const Navbar = () => {
   const navigate = useNavigate();
   const { currentUser, logout, checkAuth } = useAuth();
 
@@ -18,62 +12,111 @@ function NavScrollExample() {
       checkAuth();
     }
   }, []);
-
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: "100px" }}
-            navbarScroll
-          >
-            <Nav.Link onClick={() => navigate("/")}>Home</Nav.Link>
-            <NavDropdown title="Account" id="navbarScrollingDropdown">
-              <NavDropdown.Item onClick={() => navigate("/register")}>
-                Register
-              </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => navigate("/login")}>
-                Login
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
-            </NavDropdown>
-
-            <NavDropdown title="Product" id="navbarScrollingDropdown">
-              <NavDropdown.Item onClick={() => navigate("/add")}>
-                Add
-              </NavDropdown.Item>
-              <NavDropdown.Item onClick={() => navigate("/products")}>
-                Products
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#" disabled>
-              {currentUser ? currentUser : "No auth user"}
-            </Nav.Link>
-          </Nav>
+    <Box>
+      <Box
+        sx={{
+          backgroundColor: "#202020",
+          display: "flex",
+          justifyContent: "space-between",
+          boxSizing: "border-box",
+        }}
+      >
+        <Box sx={{ display: "flex" }}>
+          <Typography sx={{ color: "white" }}>
+            {currentUser ? (
+              <Box>
+                <Typography>{currentUser}</Typography>{" "}
+                <Button onClick={logout}>LOG OUT</Button>
+              </Box>
+            ) : (
+              <Box>
+                <Button onClick={() => navigate("/login")}>SIGN IN</Button>
+                <Button onClick={() => navigate("/register")}>| JOIN</Button>
+              </Box>
+            )}
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
           <img
-            width={30}
-            src={favoritesIcon}
-            style={{ cursor: "pointer" }}
+            style={{ width: "55px", height: "45px", marginRight: "40rem" }}
+            src="https://yt3.ggpht.com/a/AATXAJwobSjoptnM6YL6lVa6zLSqqglBwlh2ISs_yQ=s900-c-k-c0xffffffff-no-rj-mo
+"
+            onClick={() => navigate("/")}
             alt=""
-            onClick={() => navigate("/favorites")}
           />
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
+          <Box>
+            <input
+              style={{
+                backgroundColor: "#47b8e0",
+                border: "1px solid gray",
+              }}
+              type="text"
+              placeholder="поиск"
             />
-            <Button variant="outline-success">Search</Button>
-          </Form>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
-}
+          </Box>
+        </Box>
+      </Box>
 
-export default NavScrollExample;
+      <Box
+        sx={{
+          backgroundColor: "#202020",
+          padding: "1rem",
+          display: "flex",
+          justifyContent: "space-evenly",
+        }}
+      >
+        <Box>
+          <Button
+            variant="text"
+            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+          >
+            CHARACTERS
+          </Button>
+          <Button
+            variant="text"
+            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+          >
+            COMICS
+          </Button>
+          <Button
+            variant="text"
+            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+          >
+            MOVIES
+          </Button>
+          <Button
+            variant="text"
+            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+          >
+            TV SHOWS
+          </Button>
+          <Button
+            variant="text"
+            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+          >
+            GAMES
+          </Button>
+          <Button
+            variant="text"
+            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+          >
+            NEWS
+          </Button>
+          <Button
+            variant="text"
+            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+          >
+            MORE
+          </Button>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+export default Navbar;
