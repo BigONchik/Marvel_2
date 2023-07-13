@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Container, Pagination } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 import { useProduct } from "../../../contexts/ProductContextProvider";
-import ComicsPage from "../../../pages/ComicsPage";
+
 import ProductCard from "../ProductCard/ProductCard";
 
-const ProductList = () => {
+const ComicsList = () => {
   const { getProducts, products, pages } = useProduct();
   const [currentPage, setCurrentPage] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -65,4 +65,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default ComicsList;

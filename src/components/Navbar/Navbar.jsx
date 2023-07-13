@@ -75,6 +75,7 @@ const Navbar = () => {
           <Button
             variant="text"
             sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+            onClick={() => navigate("/characters")}
           >
             CHARACTERS
           </Button>
@@ -88,6 +89,7 @@ const Navbar = () => {
           <Button
             variant="text"
             sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+            onClick={() => navigate("/movies")}
           >
             MOVIES
           </Button>

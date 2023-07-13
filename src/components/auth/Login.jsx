@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Button, Container, Form, Spinner } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -44,6 +46,9 @@ const Login = () => {
       ) : (
         <Button onClick={handleSave}>LOGIN</Button>
       )}
+      <Button onClick={() => navigate("/password-reset")}>
+        Забыли пороль ?
+      </Button>
     </Container>
   );
 };
