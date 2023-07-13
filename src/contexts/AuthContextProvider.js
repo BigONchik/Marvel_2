@@ -52,7 +52,7 @@ const AuthContextProvider = ({ children }) => {
     try {
       const tokens = JSON.parse(localStorage.getItem("tokens"));
 
-      const res = await axios.post(`${API}/account/token/refresh/`, {
+      const res = await axios.post(`${API}/account/refresh/`, {
         refresh: tokens.refresh,
       });
       localStorage.setItem(
