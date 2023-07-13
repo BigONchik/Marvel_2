@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Pagination } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 import { useProduct } from "../../../contexts/ProductContextProvider";
+import ComicsPage from "../../../pages/ComicsPage";
 import ProductCard from "../ProductCard/ProductCard";
 
 const ProductList = () => {

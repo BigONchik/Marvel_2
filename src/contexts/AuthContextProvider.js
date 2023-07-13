@@ -16,7 +16,7 @@ const AuthContextProvider = ({ children }) => {
   async function handleRegister(formData) {
     setLoading(true);
     try {
-      await axios.post(`${API}/account/register/`, formData);
+      await axios.post(`${API}/account/registration/`, formData);
       navigate("/register-success");
     } catch (error) {
       setError(Object.values(error.response.data).flat(2)[0]);

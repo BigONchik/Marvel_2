@@ -18,7 +18,7 @@ const MainRoutes = () => {
       <Route path="/register-success" element={<RegisterSuccess />} />
 
       <Route path="/add" element={<AddProduct />} />
-      <Route path="/products" element={<ProductList />} />
+      <Route path="/comics" element={<ProductList />} />
       <Route path="/products/:id" element={<ProductDetails />} />
       <Route path="/edit/:id" element={<EditProduct />} />
 

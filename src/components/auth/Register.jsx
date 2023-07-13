@@ -6,11 +6,21 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [userName, setUserName] = useState("");
 
   const { handleRegister, loading, error } = useAuth();
 
   function handleSave() {
-    if (!email.trim() || !password.trim() || !passwordConfirm.trim()) {
+    if (
+      !email.trim() ||
+      !password.trim() ||
+      !passwordConfirm.trim() ||
+      !firstName.trim() ||
+      !lastName.trim() ||
+      !userName.trim()
+    ) {
       alert("заполните поля!");
       return;
     }
@@ -18,7 +28,10 @@ const Register = () => {
     const formData = new FormData();
     formData.append("email", email);
     formData.append("password", password);
-    formData.append("password_confirm", passwordConfirm);
+    formData.append("password2", passwordConfirm);
+    formData.append("first_name", firstName);
+    formData.append("last_name", lastName);
+    formData.append("username", userName);
     handleRegister(formData);
   }
 
@@ -36,6 +49,18 @@ const Register = () => {
       <Form.Control
         onChange={(e) => setPasswordConfirm(e.target.value)}
         placeholder="confirm password"
+      />
+      <Form.Control
+        onChange={(e) => setFirstName(e.target.value)}
+        placeholder="first name"
+      />
+      <Form.Control
+        onChange={(e) => setLastName(e.target.value)}
+        placeholder="last name"
+      />
+      <Form.Control
+        onChange={(e) => setUserName(e.target.value)}
+        placeholder="user name"
       />
 
       {loading ? (
