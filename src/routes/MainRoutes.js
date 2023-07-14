@@ -8,9 +8,9 @@ import Favorites from "../components/favorites/Favorites";
 import AddProduct from "../components/product/AddProduct/AddProduct";
 import EditProduct from "../components/product/EditProduct/EditProduct";
 import ProductDetails from "../components/product/ProductDetails/ProductDetails";
+import HomePage from "../pages/HomePage/HomePage";
 
 import ComicsList from "../components/product/Comics/ComicsList";
-import HomePage from "../pages/HomePage";
 
 import MoviesList from "../components/product/MoviesList/MoviesList";
 import CharactersList from "../components/product/Characters/CharactersList";

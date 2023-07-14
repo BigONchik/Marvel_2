@@ -1,0 +1,117 @@
+.Footer-container {
+  background-color: #151515;
+  height: 22rem;
+}
+.footer {
+  display: flex;
+  flex-direction: row;
+  padding-top: 6rem;
+  padding-left: 10rem;
+}
+.footer__img-div img {
+  width: 5.5rem;
+  height: auto;
+}
+.footer__part1 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5rem;
+}
+.footer__part1 a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  padding-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 16px;
+}
+.footer__part1 a:hover {
+  color: rgb(161, 158, 158);
+}
+
+.footer__part2 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 7rem;
+}
+.footer__part2 a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 16px;
+}
+.footer__part2 a:hover {
+  color: rgb(161, 158, 158);
+}
+.footer__part3 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 7rem;
+}
+
+.footer__part3 a:first-child img {
+  width: 3rem;
+  margin-top: 0.4rem;
+  margin-left: 1rem;
+}
+.footer__part3 a:last-child img {
+  width: 2rem;
+  margin-top: 2.7rem;
+  margin-left: 1rem;
+}
+
+.footer__part4 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+.footer__part4 a {
+  text-decoration: none;
+}
+.footer__part4 a:first-child p,
+.footer__part4 a:nth-child(3) p {
+  color: white;
+  text-transform: uppercase;
+  margin: 0rem;
+  font-size: 16px;
+  font-weight: 600;
+}
+.footer__part4 a:nth-child(3) {
+  margin-top: 0.7rem;
+}
+.footer__part4 a:nth-child(2),
+.footer__part4 a:last-child {
+  font-size: 16px;
+  color: rgb(161, 158, 158);
+  margin-top: -0.3rem;
+}
+
+.footer__part5 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 7rem;
+}
+.footer__part5 p {
+  color: white;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.footer__part5 img {
+  width: 1.7rem;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+}
+.footer__part5 span {
+  display: flex;
+  flex-direction: row;
+  width: 17rem;
+  flex-wrap: wrap;
+}
+.footer__part5 img:hover {
+  transform: scale(1.1);
+}
