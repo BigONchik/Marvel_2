@@ -8,26 +8,18 @@ import Favorites from "../components/favorites/Favorites";
 import AddProduct from "../components/product/AddProduct/AddProduct";
 import EditProduct from "../components/product/EditProduct/EditProduct";
 import ProductDetails from "../components/product/ProductDetails/ProductDetails";
-<<<<<<< HEAD
 import ProductList from "../components/product/ProductList/ProductList";
 import HomePage from "../pages/HomePage/HomePage";
-=======
 
 import ComicsList from "../components/product/Comics/ComicsList";
-import HomePage from "../pages/HomePage";
 
 import MoviesList from "../components/product/MoviesList/MoviesList";
 import CharactersList from "../components/product/Characters/CharactersList";
->>>>>>> f80e3b6ccf91ca78e0114bca7d6ac646986f694c
 
 const MainRoutes = () => {
   return (
     <Routes>
-<<<<<<< HEAD
-      <Route path="/" element={<HomePage/>} />
-=======
       <Route path="/" element={<HomePage />} />
->>>>>>> f80e3b6ccf91ca78e0114bca7d6ac646986f694c
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register-success" element={<RegisterSuccess />} />
