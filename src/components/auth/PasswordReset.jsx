@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Container, FormControl, Button } from "react-bootstrap";
 import { API } from "../../helpers/consts";
+import "./Auth.css"
 
 const PasswordReset = () => {
   const [email, setEmail] = useState("");
@@ -51,7 +52,7 @@ const PasswordReset = () => {
           onChange={(event) => setEmail(event.target.value)}
         />
         {error && <div className="alert alert-danger">{error}</div>}
-        <Button variant="danger" disabled={error} type="submit">
+        <Button className="btn-danger" disabled={error} type="submit">
           Отправить письмо для восстановления пароля
         </Button>
       </form>

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Button, Container, Form, Spinner } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContextProvider";
+import "./Auth.css"
+
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -64,7 +66,7 @@ const Register = () => {
       />
 
       {loading ? (
-        <Button variant="danger" disabled>
+        <Button className="btn-danger" disabled>
           <Spinner
             as="span"
             animation="grow"
@@ -75,7 +77,7 @@ const Register = () => {
           Loading...
         </Button>
       ) : (
-        <Button variant="danger" onClick={handleSave}>
+        <Button className="btn-danger" onClick={handleSave}>
           REGISTER
         </Button>
       )}

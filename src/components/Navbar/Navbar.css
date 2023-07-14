@@ -90,7 +90,7 @@
     flex-direction: row;
     justify-content: center;
     margin-top: 1rem;
-    margin-left: 39%;
+    margin-left: 37%;
     margin-top: 2rem;
   }  
 
@@ -98,18 +98,17 @@
     color: white;
     font-size: 16px;
     font-weight: 600;
-    margin-right: 2rem;
+    margin-right: 4rem;
     cursor: pointer;
   }
   
-  .navbar-row2 p.active {
+  .navbar-row2 p.active:hover {
     color: white;
     margin-bottom: 1px;
     padding-bottom: 0px;
     border-bottom: 2px solid #e72b30;
   }
-  
-  .navbar-row2 p:not(.active):hover {
+  .navbar-row2 p:hover {
     color: gray;
   }
   

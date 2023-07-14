@@ -8,7 +8,6 @@ import Favorites from "../components/favorites/Favorites";
 import AddProduct from "../components/product/AddProduct/AddProduct";
 import EditProduct from "../components/product/EditProduct/EditProduct";
 import ProductDetails from "../components/product/ProductDetails/ProductDetails";
-import ProductList from "../components/product/ProductList/ProductList";
 import HomePage from "../pages/HomePage/HomePage";
 
 import ComicsList from "../components/product/Comics/ComicsList";

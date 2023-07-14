@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Container, Form, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
+import "./Auth.css"
 
 const Login = () => {
   const navigate = useNavigate();
@@ -33,7 +34,8 @@ const Login = () => {
         placeholder="password"
       />
       {loading ? (
-        <Button variant="danger" disabled>
+        <Button  className="btn-danger"
+         disabled>
           <Spinner
             as="span"
             animation="grow"
@@ -44,16 +46,16 @@ const Login = () => {
           Loading...
         </Button>
       ) : (
-        <Button variant="danger" onClick={handleSave}>
+        <Button className="btn-danger"
+         onClick={handleSave}>
           LOGIN
         </Button>
       )}
-      <Button
-        variant="danger"
+      <Button className="btn-danger"
         style={{ marginLeft: "30%" }}
         onClick={() => navigate("/password-reset")}
       >
-        Забыли пороль ?
+        Забыли пароль?
       </Button>
     </Container>
   );

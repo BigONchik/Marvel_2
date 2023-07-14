@@ -15,9 +15,11 @@ const Navbar = () => {
     }
   }, []);
   const [activeItem, setActiveItem] = useState("");
+  const [notActiveItems, setNotActiveItems] = useState("")
 
   const handleItemHover = (item) => {
     setActiveItem(item);
+    setNotActiveItems(item)
   };
 
   return (
@@ -28,7 +30,7 @@ const Navbar = () => {
             {currentUser ? (
               <div className="navbar__log-out">
                 <p>{currentUser}</p>
-                <button onClick={logout}>LOG OUT</button>
+                <button onClick={logout}>Log Out</button>
               </div>
             ) : (
               <div className="navbar__sign-in">
@@ -47,25 +49,25 @@ const Navbar = () => {
         <div className="navbar-row2">
           <p
             className={activeItem === "NEWS" ? "active" : ""}
-            onMouseEnter={() => handleItemHover("NEWS")}
+            onMouseOver={() => handleItemHover("NEWS")}
           >
             NEWS
           </p>
           <p
             className={activeItem === "COMICS" ? "active" : ""}
-            onMouseEnter={() => handleItemHover("COMICS")}
+            onMouseOver={() => handleItemHover("COMICS")}
           >
             COMICS
           </p>
           <p
             className={activeItem === "CHARACTERS" ? "active" : ""}
-            onMouseEnter={() => handleItemHover("CHARACTERS")}
+            onMouseOver={() => handleItemHover("CHARACTERS")}
           >
             CHARACTERS
           </p>
           <p
             className={activeItem === "MOVIES" ? "active" : ""}
-            onMouseEnter={() => handleItemHover("MOVIES")}
+            onMouseOver={() => handleItemHover("MOVIES")}
           >
             MOVIES
           </p>
