@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Box, Button, TextField, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
+import { Button, Container } from "react-bootstrap";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -12,45 +12,58 @@ const Navbar = () => {
       checkAuth();
     }
   }, []);
+
   return (
-    <Box>
-      <Box
-        sx={{
+    <div>
+      <div
+        style={{
+          width: "100%",
           backgroundColor: "#202020",
           display: "flex",
           justifyContent: "space-between",
           boxSizing: "border-box",
         }}
       >
-        <Box sx={{ display: "flex" }}>
-          <Typography sx={{ color: "white" }}>
+        <Container className="d-flex">
+          <p style={{ color: "white" }}>
             {currentUser ? (
-              <Box>
-                <Typography>{currentUser}</Typography>{" "}
+              <Container>
+                <p style={{ color: "white" }}>{currentUser}</p>{" "}
                 <Button onClick={logout}>LOG OUT</Button>
-              </Box>
+              </Container>
             ) : (
-              <Box>
-                <Button onClick={() => navigate("/login")}>SIGN IN</Button>
-                <Button onClick={() => navigate("/register")}>| JOIN</Button>
-              </Box>
+              <Container style={{ display: "flex" }}>
+                <Button
+                  style={{
+                    backgroundColor: "transparent",
+                    borderColor: "transparent",
+                  }}
+                  onClick={() => navigate("/login")}
+                >
+                  SIGN IN
+                </Button>
+                <p style={{ color: "white", marginTop: "8%" }}>|</p>
+                <Button
+                  style={{
+                    backgroundColor: "transparent",
+                    borderColor: "transparent",
+                  }}
+                  onClick={() => navigate("/register")}
+                >
+                  JOIN
+                </Button>
+              </Container>
             )}
-          </Typography>
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+          </p>
+        </Container>
+        <Container style={{ display: "flex", justifyContent: "center" }}>
           <img
             style={{ width: "55px", height: "45px", marginRight: "40rem" }}
-            src="https://yt3.ggpht.com/a/AATXAJwobSjoptnM6YL6lVa6zLSqqglBwlh2ISs_yQ=s900-c-k-c0xffffffff-no-rj-mo
-"
+            src="https://yt3.ggpht.com/a/AATXAJwobSjoptnM6YL6lVa6zLSqqglBwlh2ISs_yQ=s900-c-k-c0xffffffff-no-rj-mo"
             onClick={() => navigate("/")}
             alt=""
           />
-          <Box>
+          <Container>
             <input
               style={{
                 backgroundColor: "#47b8e0",
@@ -59,22 +72,23 @@ const Navbar = () => {
               type="text"
               placeholder="поиск"
             />
-          </Box>
-        </Box>
-      </Box>
+          </Container>
+        </Container>
+      </div>
 
-      <Box
-        sx={{
+      <div
+        style={{
+          width: "100%",
           backgroundColor: "#202020",
           padding: "1rem",
           display: "flex",
           justifyContent: "space-evenly",
         }}
       >
-        <Box>
+        <Container>
           <Button
             variant="text"
-            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+            style={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
             onClick={() => navigate("/characters")}
           >
             CHARACTERS
@@ -82,44 +96,54 @@ const Navbar = () => {
           <Button
             onClick={() => navigate("/comics")}
             variant="text"
-            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+            style={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
           >
             COMICS
           </Button>
           <Button
             variant="text"
-            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+            style={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
             onClick={() => navigate("/movies")}
           >
             MOVIES
           </Button>
           <Button
             variant="text"
-            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+            style={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
           >
             TV SHOWS
           </Button>
           <Button
             variant="text"
-            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+            style={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
           >
             GAMES
           </Button>
           <Button
             variant="text"
-            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+            style={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
           >
             NEWS
           </Button>
           <Button
             variant="text"
-            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+            style={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
           >
             MORE
           </Button>
-        </Box>
-      </Box>
-    </Box>
+          {currentUser && currentUser.email === "admin@admin.com" && (
+            <Button
+              variant="danger"
+              style={{ color: "white" }}
+              onClick={() => navigate("/add")}
+            >
+              ADD
+            </Button>
+          )}
+        </Container>
+      </div>
+    </div>
   );
 };
+
 export default Navbar;

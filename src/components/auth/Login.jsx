@@ -23,7 +23,7 @@ const Login = () => {
   }
 
   return (
-    <Container className="w-50">
+    <Container className="w-25">
       <Form.Control
         onChange={(e) => setEmail(e.target.value)}
         placeholder="email"
@@ -33,7 +33,7 @@ const Login = () => {
         placeholder="password"
       />
       {loading ? (
-        <Button variant="primary" disabled>
+        <Button variant="danger" disabled>
           <Spinner
             as="span"
             animation="grow"
@@ -44,9 +44,15 @@ const Login = () => {
           Loading...
         </Button>
       ) : (
-        <Button onClick={handleSave}>LOGIN</Button>
+        <Button variant="danger" onClick={handleSave}>
+          LOGIN
+        </Button>
       )}
-      <Button onClick={() => navigate("/password-reset")}>
+      <Button
+        variant="danger"
+        style={{ marginLeft: "30%" }}
+        onClick={() => navigate("/password-reset")}
+      >
         Забыли пороль ?
       </Button>
     </Container>

@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { useProduct } from "../../../contexts/ProductContextProvider";
 
 import ProductCard from "../ProductCard/ProductCard";
+import ComicsPage from "../../../pages/ComicsPage";
 
 const ComicsList = () => {
   const { getProducts, products, pages } = useProduct();
@@ -39,29 +40,35 @@ const ComicsList = () => {
   };
 
   return (
-    <Container className="d-flex flex-wrap justify-content-between">
-      {products.map((item) => (
-        <ProductCard key={item.id} item={item} />
-      ))}
-
-      <Container>
-        <Pagination>
-          <Pagination.Prev onClick={handlePrev} />
-          {getPagesArr().map((item) =>
-            currentPage === item ? (
-              <Pagination.Item active key={item}>
-                {item}
-              </Pagination.Item>
-            ) : (
-              <Pagination.Item key={item} onClick={() => setCurrentPage(item)}>
-                {item}
-              </Pagination.Item>
-            )
-          )}
-          <Pagination.Next onClick={handleNext} />
-        </Pagination>
+    <>
+      <ComicsPage />
+      <Container className="d-flex flex-wrap justify-content-between">
+        {products.map((item) => (
+          <ProductCard key={item.id} item={item} />
+        ))}
+        <ComicsPage />
+        <Container>
+          <Pagination>
+            <Pagination.Prev onClick={handlePrev} />
+            {getPagesArr().map((item) =>
+              currentPage === item ? (
+                <Pagination.Item active key={item}>
+                  {item}
+                </Pagination.Item>
+              ) : (
+                <Pagination.Item
+                  key={item}
+                  onClick={() => setCurrentPage(item)}
+                >
+                  {item}
+                </Pagination.Item>
+              )
+            )}
+            <Pagination.Next onClick={handleNext} />
+          </Pagination>
+        </Container>
       </Container>
-    </Container>
+    </>
   );
 };
 

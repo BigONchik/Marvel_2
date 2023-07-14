@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Container, FormControl, Button } from "react-bootstrap";
 import { API } from "../../helpers/consts";
@@ -7,6 +6,7 @@ import { API } from "../../helpers/consts";
 const PasswordReset = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
+  const formRef = useRef(null); // Создаем ссылку на элемент формы
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,23 +28,33 @@ const PasswordReset = () => {
   };
 
   useEffect(() => {
-    // При отправке формы вызовите функцию handleSubmit.
+    const formElement = formRef.current; // Получаем ссылку на элемент формы
+    if (formElement) {
+      formElement.addEventListener("submit", handleSubmit);
+    }
+
     return () => {
-      document.querySelector("form").addEventListener("submit", handleSubmit);
+      if (formElement) {
+        formElement.removeEventListener("submit", handleSubmit);
+      }
     };
   }, []);
 
   return (
     <Container className="w-50">
-      <FormControl
-        placeholder="Введите адрес электронной почты"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
-      />
-      {error && <div className="alert alert-danger">{error}</div>}
-      <Button variant="primary" disabled={error} onClick={handleSubmit}>
-        Восстановить пароль
-      </Button>
+      <form ref={formRef}>
+        {" "}
+        {/* Используем ссылку на элемент формы */}
+        <FormControl
+          placeholder="Введите адрес электронной почты"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
+        {error && <div className="alert alert-danger">{error}</div>}
+        <Button variant="danger" disabled={error} type="submit">
+          Отправить письмо для восстановления пароля
+        </Button>
+      </form>
     </Container>
   );
 };
