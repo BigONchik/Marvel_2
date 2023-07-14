@@ -8,11 +8,12 @@ import AddProduct from "../components/product/AddProduct/AddProduct";
 import EditProduct from "../components/product/EditProduct/EditProduct";
 import ProductDetails from "../components/product/ProductDetails/ProductDetails";
 import ProductList from "../components/product/ProductList/ProductList";
+import HomePage from "../pages/HomePage/HomePage";
 
 const MainRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<h1>Home Page</h1>} />
+      <Route path="/" element={<HomePage/>} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register-success" element={<RegisterSuccess />} />

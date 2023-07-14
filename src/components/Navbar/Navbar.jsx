@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Box, Button, TextField, Typography } from "@mui/material";
+import "./Navbar.css";
+import marvelLogo from "../../assets/marveLogo.png";
+import searchIcon from "../../assets/search-icon.png";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContextProvider";
 
@@ -12,112 +14,65 @@ const Navbar = () => {
       checkAuth();
     }
   }, []);
-  return (
-    <Box>
-      <Box
-        sx={{
-          backgroundColor: "#202020",
-          display: "flex",
-          justifyContent: "space-between",
-          boxSizing: "border-box",
-        }}
-      >
-        <Box sx={{ display: "flex" }}>
-          <Typography sx={{ color: "white" }}>
-            {currentUser ? (
-              <Box>
-                <Typography>{currentUser}</Typography>{" "}
-                <Button onClick={logout}>LOG OUT</Button>
-              </Box>
-            ) : (
-              <Box>
-                <Button onClick={() => navigate("/login")}>SIGN IN</Button>
-                <Button onClick={() => navigate("/register")}>| JOIN</Button>
-              </Box>
-            )}
-          </Typography>
-        </Box>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <img
-            style={{ width: "55px", height: "45px", marginRight: "40rem" }}
-            src="https://yt3.ggpht.com/a/AATXAJwobSjoptnM6YL6lVa6zLSqqglBwlh2ISs_yQ=s900-c-k-c0xffffffff-no-rj-mo
-"
-            onClick={() => navigate("/")}
-            alt=""
-          />
-          <Box>
-            <input
-              style={{
-                backgroundColor: "#47b8e0",
-                border: "1px solid gray",
-              }}
-              type="text"
-              placeholder="поиск"
-            />
-          </Box>
-        </Box>
-      </Box>
+  const [activeItem, setActiveItem] = useState("");
 
-      <Box
-        sx={{
-          backgroundColor: "#202020",
-          padding: "1rem",
-          display: "flex",
-          justifyContent: "space-evenly",
-        }}
-      >
-        <Box>
-          <Button
-            variant="text"
-            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
-          >
-            CHARACTERS
-          </Button>
-          <Button
-            onClick={() => navigate("/comics")}
-            variant="text"
-            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
-          >
-            COMICS
-          </Button>
-          <Button
-            variant="text"
-            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
-          >
-            MOVIES
-          </Button>
-          <Button
-            variant="text"
-            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
-          >
-            TV SHOWS
-          </Button>
-          <Button
-            variant="text"
-            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
-          >
-            GAMES
-          </Button>
-          <Button
-            variant="text"
-            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+  const handleItemHover = (item) => {
+    setActiveItem(item);
+  };
+
+  return (
+    <div className="Navbar-container">
+      <div className="navbar">
+      <div className="navbar-row1">
+          <div className="navbar-auth">
+            {currentUser ? (
+              <div className="navbar__log-out">
+                <p>{currentUser}</p>
+                <button onClick={logout}>LOG OUT</button>
+              </div>
+            ) : (
+              <div className="navbar__sign-in">
+                <button onClick={() => navigate("/login")}>SIGN IN</button>
+                <button onClick={() => navigate("/register")}> JOIN</button>
+              </div>
+            )}
+          </div>
+          <div className="navbar__img">
+            <img src={marvelLogo} alt="" onClick={() => navigate("/")} />
+          </div>
+          <div className="navbar__search">
+            <img src={searchIcon} alt="" />
+          </div>
+        </div>
+        <div className="navbar-row2">
+          <p
+            className={activeItem === "NEWS" ? "active" : ""}
+            onMouseEnter={() => handleItemHover("NEWS")}
           >
             NEWS
-          </Button>
-          <Button
-            variant="text"
-            sx={{ color: "#fff", marginRight: "1rem", fontSize: "1rem" }}
+          </p>
+          <p
+            className={activeItem === "COMICS" ? "active" : ""}
+            onMouseEnter={() => handleItemHover("COMICS")}
           >
-            MORE
-          </Button>
-        </Box>
-      </Box>
-    </Box>
+            COMICS
+          </p>
+          <p
+            className={activeItem === "CHARACTERS" ? "active" : ""}
+            onMouseEnter={() => handleItemHover("CHARACTERS")}
+          >
+            CHARACTERS
+          </p>
+          <p
+            className={activeItem === "MOVIES" ? "active" : ""}
+            onMouseEnter={() => handleItemHover("MOVIES")}
+          >
+            MOVIES
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
+
 export default Navbar;
