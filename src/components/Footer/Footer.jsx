@@ -93,8 +93,8 @@ const Footer = () => {
               <img src={youtubeIcon} alt="" srcset="" />
             </a>
 
-            <a href="https://www.snapchat.com/add/marvelhq"></a>
-            <img src={snapchatIcon} alt="" srcset="" />
+            <a href="https://www.snapchat.com/add/marvelhq"><img src={snapchatIcon} alt="" srcset="" /></a>
+            
 
             <a href="https://www.pinterest.com/marvelofficial/">
               <img src={pinteresIcon} alt="" srcset="" />

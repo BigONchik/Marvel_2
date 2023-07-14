@@ -69,6 +69,13 @@ const AuthContextProvider = ({ children }) => {
     }
   }
 
+  async function PasswordReset(formData, email) {
+    try {
+      await axios.post(`${API}/account/password_reset/`, formData);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   const values = {
     handleRegister,
     handleLogin,
@@ -77,6 +84,7 @@ const AuthContextProvider = ({ children }) => {
     checkAuth,
     loading,
     error,
+    PasswordReset,
   };
   return <authContext.Provider value={values}>{children}</authContext.Provider>;
 };

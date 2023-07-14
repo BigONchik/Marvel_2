@@ -64,7 +64,7 @@ const Register = () => {
       />
 
       {loading ? (
-        <Button variant="primary" disabled>
+        <Button variant="danger" disabled>
           <Spinner
             as="span"
             animation="grow"
@@ -75,7 +75,9 @@ const Register = () => {
           Loading...
         </Button>
       ) : (
-        <Button onClick={handleSave}>REGISTER</Button>
+        <Button variant="danger" onClick={handleSave}>
+          REGISTER
+        </Button>
       )}
     </Container>
   );

@@ -40,7 +40,6 @@ const ComicsPage = () => {
       alt: "Slide 5",
       text: "Slide 5 Text",
     },
-    // Добавьте другие слайды
   ];
 
   const [slides, setSlides] = useState(slidesData);
