@@ -29,7 +29,9 @@ const Navbar = () => {
             {currentUser ? (
               <Container>
                 <p style={{ color: "white" }}>{currentUser}</p>{" "}
-                <Button onClick={logout}>LOG OUT</Button>
+                <Button variant="danger" onClick={logout}>
+                  LOG OUT
+                </Button>
               </Container>
             ) : (
               <Container style={{ display: "flex" }}>
