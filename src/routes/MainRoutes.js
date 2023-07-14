@@ -14,6 +14,8 @@ import ComicsList from "../components/product/Comics/ComicsList";
 
 import MoviesList from "../components/product/MoviesList/MoviesList";
 import CharactersList from "../components/product/Characters/CharactersList";
+import News from "../components/product/News/News";
+import Cart from "../components/Cart/Cart";
 
 const MainRoutes = () => {
   return (
@@ -25,6 +27,7 @@ const MainRoutes = () => {
       <Route path="/password-reset" element={<PasswordReset />} />
 
       <Route path="/add" element={<AddProduct />} />
+      <Route path="/news" element={<News />} />
       <Route path="/comics" element={<ComicsList />} />
       <Route path="/characters" element={<CharactersList />} />
       <Route path="/movies" element={<MoviesList />} />
@@ -32,6 +35,8 @@ const MainRoutes = () => {
       <Route path="/edit/:id" element={<EditProduct />} />
 
       <Route path="/favorites" element={<Favorites />} />
+      <Route path="/profile" element={<Cart />} />
+      <Route path="/cart" element={<Cart />} />
 
       <Route path="*" element={<h1>PAGE NOT FOUND</h1>} />
     </Routes>

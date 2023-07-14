@@ -1,114 +1,113 @@
 .Navbar-container {
-    background-color: #151515;
-    width: 100%;
-    height: 10rem;
-    padding: 0;
-  }
-  
-  .navbar {
-    padding: 0;
-    padding-top: 0;
-  }
-  
-  .navbar-row1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    margin-left: 5%;
-  }
-  
-  .navbar-auth {
-    display: flex;
-    align-items: center;
-  }
-  
-  .navbar__sign-in {
-    display: flex;
-    flex-direction: row;
-    margin-right: -6rem;
+  background-color: #151515;
+  width: 100%;
+  height: 10rem;
+  padding: 0;
+}
 
-  }
-  
-  .navbar__log-out {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    margin-top: -6rem;
-    margin-right: -11.6rem;
-  }
-  
-  .navbar__log-out p {
-    color: white;
-    font-size: 15px;
-    margin-top: 7rem;
-  }
-  
-  .navbar__log-out button {
-    text-align: left;
-  }
-  
-  .navbar__sign-in button:first-child::after {
-    content: "|";
-    color: white;
-    font-size: 15px;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  
-  .navbar__sign-in button,
-  .navbar__log-out button {
-    color: white;
-    background-color: transparent;
-    border: none;
-    margin-top: -1rem;
-  }
-  
-  .navbar__img img {
-    width: 10rem;
-  }
-  
-  .navbar__img {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.navbar {
+  padding: 0;
+  padding-top: 0;
+}
 
-  }
-  
-  .navbar__search img {
-    width: 2rem;
-    margin-top: 1rem;
-  }
-  
-  .navbar__search {
-    margin-top: -1rem;
-  }
-  
-  .navbar-row2{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-left: 37%;
-    margin-top: 2rem;
-  }  
+.navbar-row1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin-left: 5%;
+}
 
-  .navbar-row2 p {
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    margin-right: 4rem;
-    cursor: pointer;
-  }
-  
-  .navbar-row2 p.active:hover {
-    color: white;
-    margin-bottom: 1px;
-    padding-bottom: 0px;
-    border-bottom: 2px solid #e72b30;
-  }
-  .navbar-row2 p:hover {
-    color: gray;
-  }
-  
+.navbar-auth {
+  width: 8rem;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__sign-in {
+  display: flex;
+  flex-direction: row;
+  margin-right: -6rem;
+}
+
+.navbar__log-out {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: -6rem;
+  margin-right: -11.6rem;
+}
+
+.navbar__log-out p {
+  color: white;
+  font-size: 15px;
+  margin-top: 7rem;
+}
+
+.navbar__log-out button {
+  text-align: left;
+}
+
+.navbar__sign-in button:first-child::after {
+  content: "|";
+  color: white;
+  font-size: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.navbar__sign-in button,
+.navbar__log-out button {
+  color: white;
+  background-color: transparent;
+  border: none;
+  margin-top: -1rem;
+}
+
+.navbar__img img {
+  width: 10rem;
+  margin-right: 6rem;
+}
+
+.navbar__img {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar__search img {
+  width: 2rem;
+  margin-top: 1rem;
+}
+
+.navbar__search {
+  margin-top: -1rem;
+}
+
+.navbar-row2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-left: 37%;
+  margin-top: 2rem;
+}
+
+.navbar-row2 p {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 4rem;
+  cursor: pointer;
+}
+
+.navbar-row2 p.active:hover {
+  color: white;
+  margin-bottom: 1px;
+  padding-bottom: 0px;
+  border-bottom: 2px solid #e72b30;
+}
+.navbar-row2 p:hover {
+  color: gray;
+}
