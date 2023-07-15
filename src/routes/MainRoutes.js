@@ -9,19 +9,17 @@ import Favorites from "../components/favorites/Favorites";
 // import EditProduct from "../components/product/EditProduct/EditProduct";
 import ProductDetails from "../components/product/ProductDetails/ProductDetails";
 import HomePage from "../pages/HomePage/HomePage";
-
 import ComicsList from "../components/product/Comics/ComicsList";
-
 import MoviesList from "../components/product/MoviesList/MoviesList";
 import News from "../components/product/News/News";
 import ProductList from "../components/product/ProductList/ProductList";
-
-
 import CharactersPage from "../pages/CharactersPage/CharactersPage";
 import CharacterDetails from "../components/product/Characters/CharacterDetails/CharacterDetails";
 import CharactersList from "../components/product/Characters/CharacterList/CharactersList";
 import AddCharacter from "../components/product/Characters/AddCharacter/AddCharacter";
 import EditCharacter from "../components/product/Characters/EditCharacter/EditCharacter";
+import Cart from "../components/Cart/Cart";
+import AddProduct from "../components/product/AddProduct/AddProduct";
 
 const MainRoutes = () => {
   return (
@@ -42,6 +40,7 @@ const MainRoutes = () => {
       {/* ROUTES FOR CHARACTERS END */}
 
 
+      <Route path="/add" element={<AddProduct />} />
       <Route path="/news" element={<News />} />
       <Route path="/comics" element={<ComicsList />} />
       <Route path="/movies" element={<MoviesList />} />
@@ -49,6 +48,8 @@ const MainRoutes = () => {
 
       <Route path="/favorites" element={<Favorites />} />
       <Route path="/products" element={<ProductList />} />
+      <Route path="/profile" element={<Cart />} />
+      <Route path="/cart" element={<Cart />} />
 
       <Route path="*" element={<h1>PAGE NOT FOUND</h1>} />
     </Routes>

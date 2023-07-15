@@ -6,3 +6,4 @@ export const ACTIONS = {
   GET__CHARACTERS: "GET__CHARACTERS",
   GET__CHARACTER_DETAILS: "GET__CHARACTER_DETAILS",
 };
+export const admin = "admin@admin.com";
