@@ -15,17 +15,17 @@ const Navbar = () => {
     }
   }, []);
   const [activeItem, setActiveItem] = useState("");
-  const [notActiveItems, setNotActiveItems] = useState("")
+  const [notActiveItems, setNotActiveItems] = useState("");
 
   const handleItemHover = (item) => {
     setActiveItem(item);
-    setNotActiveItems(item)
+    setNotActiveItems(item);
   };
 
   return (
     <div className="Navbar-container">
       <div className="navbar">
-      <div className="navbar-row1">
+        <div className="navbar-row1">
           <div className="navbar-auth">
             {currentUser ? (
               <div className="navbar__log-out">
@@ -35,6 +35,7 @@ const Navbar = () => {
             ) : (
               <div className="navbar__sign-in">
                 <button onClick={() => navigate("/login")}>SIGN IN</button>
+                <p>|</p>
                 <button onClick={() => navigate("/register")}> JOIN</button>
               </div>
             )}
@@ -50,24 +51,28 @@ const Navbar = () => {
           <p
             className={activeItem === "NEWS" ? "active" : ""}
             onMouseOver={() => handleItemHover("NEWS")}
+            onClick={() => navigate("/news")}
           >
             NEWS
           </p>
           <p
             className={activeItem === "COMICS" ? "active" : ""}
             onMouseOver={() => handleItemHover("COMICS")}
+            onClick={() => navigate("/comics")}
           >
             COMICS
           </p>
           <p
             className={activeItem === "CHARACTERS" ? "active" : ""}
             onMouseOver={() => handleItemHover("CHARACTERS")}
+            onClick={() => navigate("/characters_page")}
           >
             CHARACTERS
           </p>
           <p
             className={activeItem === "MOVIES" ? "active" : ""}
             onMouseOver={() => handleItemHover("MOVIES")}
+            onClick={() => navigate("/movies")}
           >
             MOVIES
           </p>

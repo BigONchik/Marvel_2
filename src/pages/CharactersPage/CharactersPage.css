@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("../../fonts/BebasNeue-Regular.ttf") format("truetype");
+}
+.CharactersPage {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10rem;
+}
+.cp__main {
+  position: relative;
+}
+.cp__main img {
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+}
+.cp__main p {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) translateY(70%);
+  flex-direction: column;
+  margin-top: 7rem;
+  align-items: center;
+}
+.cp__main p:nth-child(2) {
+  color: white;
+  font-weight: 400;
+  font-size: 60px;
+  /* margin-top: 10rem; */
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 4px;
+}
+.cp__main p:last-child {
+  color: white;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  padding-top: 4rem;
+  width: 100%;
+}
+.cp__characterList{
+  padding-top: 26rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+  padding-left: 11rem;
+}
+.cp__characterList p:first-child {
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  line-height: 1;
+  color: black;
+  font-size: 30px;
+}
+
+.cp__characterList p:first-child::before {
+  left: 59px;
+  top: -8px;
+  transform-origin: left bottom;
+  background-color: #c6a972;
+  content: "";
+  display: block;
+  height: 3px;
+  position: absolute;
+  transform: rotate(-45deg) skewX(45deg);
+  width: 25px;
+}
+
+.cp__characterList p:first-child::after {
+  left: -5px;
+  top: calc(100% + 3px);
+  transform-origin: right top;
+  background-color: #c6a972;
+  content: "";
+  display: block;
+  height: 3px;
+  position: absolute;
+  transform: rotate(-45deg) skewX(45deg);
+  width: 25px;
+}

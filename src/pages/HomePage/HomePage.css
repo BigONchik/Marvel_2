@@ -129,7 +129,7 @@
 .hp__secretInvasion_inner button:active,
 .hp__comics_inner button:active {
   clip-path: polygon(0% 0, 100% 0, 100% 100%, 100% 100%, 0% 100%, 0% 100%);
-  border: 1px solid #e72b30;
+  border: 1px solid #c6a972;
 }
 
 .hp__secretInvasion_related,

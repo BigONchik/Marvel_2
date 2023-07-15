@@ -1,21 +1,21 @@
-import React, { useEffect } from "react";
-import { useProduct } from "../../contexts/ProductContextProvider";
-import ProductCard from "../product/ProductCard/ProductCard";
+// import React, { useEffect } from "react";
+// import { useProduct } from "../../contexts/ProductContextProvider";
+// import ProductCard from "../product/ProductCard/ProductCard";
 
-const Favorites = () => {
-  const { favorites, getFavorites } = useProduct();
+// const Favorites = () => {
+//   const { favorites, getFavorites } = useProduct();
 
-  useEffect(() => {
-    getFavorites();
-  }, []);
+//   useEffect(() => {
+//     getFavorites();
+//   }, []);
 
-  return (
-    <div className="d-flex flex-wrap justify-content-evenly">
-      {favorites.map((item) => (
-        <ProductCard key={item.id} item={item} />
-      ))}
-    </div>
-  );
-};
+//   return (
+//     <div className="d-flex flex-wrap justify-content-evenly">
+//       {favorites.map((item) => (
+//         <ProductCard key={item.id} item={item} />
+//       ))}
+//     </div>
+//   );
+// };
 
-export default Favorites;
+// export default Favorites;

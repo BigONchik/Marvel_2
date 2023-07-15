@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useCharacters } from "../../../contexts/CharactersContextProvider";
-import "./AddProduct.css";
+import { useCharacters } from "../../../../contexts/CharactersContextProvider";
+import "./AddCharacter.css";
 
-const AddProduct = () => {
-  const [products, setCharacter] = useState({
+const AddCharacter = () => {
+  const [character, setCharacter] = useState({
     image1: "",
     image2: "",
     name: "",
@@ -11,12 +11,12 @@ const AddProduct = () => {
     description: "",
   });
 
-  const { addCharacter } = useCharacters();
+  const {   addCharacter } = useCharacters();
 
   const scanInp = () => {
     if (
-      !!character.image1.trim() ||
-      character.image2.trim() ||
+      !character.image1.trim() ||
+      !character.image2.trim() ||
       !character.name.trim() ||
       !character.description.trim()
     ) {
@@ -34,27 +34,24 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="admin">
-      <h4 className="admin__title animate__animated animate__rubberBand">
-        ADD CHARACTER
-      </h4>
-      <div className="admin__block animate__animated animate__bounce">
-        <input
-          className="admin__inputs animate__animated animate__backInLeft"
+    <div className="AddCharacter">
+      <p>ADD CHARACTER</p>
+      <div className="addCharacter__inputs-div">
+      <input
           name="image1"
+          value={character.image1}
           onChange={handleInp}
           type="text"
           placeholder="Image one"
         />
         <input
-          className="admin__inputs animate__animated animate__backInLeft"
           name="image2"
+          value={character.image2}
           onChange={handleInp}
           type="text"
           placeholder="Image two"
         />
         <input
-          className="admin__inputs animate__animated animate__backInLeft"
           name="name"
           value={character.name}
           onChange={handleInp}
@@ -62,34 +59,32 @@ const AddProduct = () => {
           placeholder="Name"
         />
         <input
-          className="admin__inputs animate__animated animate__backInLeft"
           name="otherName"
+          value={character.otherName}
           onChange={handleInp}
           type="text"
           placeholder="Other Name"
         />
         <input
-          className="admin__inputs animate__animated animate__backInLeft"
           name="description"
+          value={character.description}
           onChange={handleInp}
           type="text"
           placeholder="Description"
         />
+          </div>
         {/* 
       <CategorySelect product={product} setProduct={setProduct} />
       <GenderSelect product={product} setProduct={setProduct} /> */}
 
-        <div className="button__div">
           <button
-            className="admin__button animate__animated animate__zoomIn"
             onClick={scanInp}
           >
-            PUSH
+            ADD
           </button>
-        </div>
-      </div>
+    
     </div>
   );
 };
 
-export default AddProduct;
+export default AddCharacter;

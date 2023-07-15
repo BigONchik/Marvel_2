@@ -4,15 +4,18 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AuthContextProvider from "./contexts/AuthContextProvider";
-import ProductContextProvider from "./contexts/ProductContextProvider";
+// import ProductContextProvider from "./contexts/ProductContextProvider";
+import CharactersContextProvider from "./contexts/CharactersContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <AuthContextProvider>
-      <ProductContextProvider>
+      {/* <ProductContextProvider> */}
+      <CharactersContextProvider>
         <App />
-      </ProductContextProvider>
+        </CharactersContextProvider>
+      {/* </ProductContextProvider> */}
     </AuthContextProvider>
   </BrowserRouter>
 );
