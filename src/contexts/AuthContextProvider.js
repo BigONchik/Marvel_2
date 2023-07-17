@@ -22,6 +22,7 @@ const AuthContextProvider = ({ children }) => {
       setError(Object.values(error.response.data).flat(2)[0]);
     } finally {
       setLoading(false);
+      navigate("/register-success");
     }
   }
 
