@@ -1,9 +1,9 @@
-// export const API = "http://34.125.222.140";
+export const API = "http://34.125.61.166";
 
-export const API = "http://localhost:8000/characters";
+export const API1 = "http://localhost:8000/characters";
 
 export const ACTIONS = {
   GET__CHARACTERS: "GET__CHARACTERS",
   GET__CHARACTER_DETAILS: "GET__CHARACTER_DETAILS",
 };
-export const admin = "admin@admin.com";
+export const ADMIN = "admin@admin.com";

@@ -1,8 +1,44 @@
 .charactersList {
+  margin-left: 6%;
+  margin-right: 6%;
+  width: 88%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+@media (max-width: 1500px) {
+  .charactersList {
     margin-left: 10%;
+    margin-right: 10%;
     width: 80%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
-  
+}
+@media (max-width: 1024px) {
+  .charactersList {
+    margin-left: 3%;
+    margin-right: 3%;
+    width: 94%;
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 768px) {
+  .charactersList {
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 96%;
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 426px) {
+  .charactersList {
+    margin-left: 0%;
+    margin-right: 0%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+

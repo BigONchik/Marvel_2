@@ -1,0 +1,10 @@
+#dropdown-basic::after{
+   display: none;
+}
+#dropdown-menu{
+    background-color: #151515;
+}
+#dropdown-menu-item{
+    color: white;
+
+}

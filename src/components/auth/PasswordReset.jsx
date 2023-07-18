@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { Container, FormControl, Button } from "react-bootstrap";
 import { API } from "../../helpers/consts";
-import "./Auth.css"
+import "./Auth.css";
 
 const PasswordReset = () => {
   const [email, setEmail] = useState("");
@@ -42,21 +42,43 @@ const PasswordReset = () => {
   }, []);
 
   return (
-    <Container className="w-50">
-      <form ref={formRef}>
-        {" "}
-        {/* Используем ссылку на элемент формы */}
-        <FormControl
-          placeholder="Введите адрес электронной почты"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        {error && <div className="alert alert-danger">{error}</div>}
-        <Button className="btn-danger" disabled={error} type="submit">
-          Отправить письмо для восстановления пароля
-        </Button>
-      </form>
-    </Container>
+    // <Container className="w-50">
+    //   <form ref={formRef}>
+    //     {" "}
+    //     {/* Используем ссылку на элемент формы */}
+    //     <FormControl
+    //       placeholder="Введите адрес электронной почты"
+    //       value={email}
+    //       onChange={(event) => setEmail(event.target.value)}
+    //     />
+    //     {error && <div className="alert alert-danger">{error}</div>}
+    //     <Button className="btn-danger" disabled={error} type="submit">
+    //       Отправить письмо для восстановления пароля
+    //     </Button>
+    //   </form>
+    // </Container>
+
+    <div className="Auth">
+      <p>PASSWORD RESET</p>
+
+      <div className="auth__inputs-div">
+        <form ref={formRef}>
+          <input
+            name="email"
+            value={email}
+            type="text"
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder="Введите адрес электронной почты"
+          />
+          {error && <div className="alert alert-danger">{error}</div>}
+          <div className="reset-btn">
+            <Button className="btn-danger" disabled={error} type="submit">
+              Отправить письмо для восстановления пароля
+            </Button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 

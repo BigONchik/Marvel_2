@@ -18,6 +18,8 @@ const Footer = () => {
   return (
     <div className="Footer-container">
       <div className="footer">
+
+        <div className="footer__parts1-2 d-flex">
         <div className="footer__img-div">
           <img src={Msign} alt="" onClick={() => navigate("/")} />
         </div>
@@ -40,7 +42,8 @@ const Footer = () => {
             Redeem Digital comics
           </a>
         </div>
-
+        </div>
+        <div className="footer__marvelProducts">
         <div className="footer__part3">
           <a href="https://www.marvel.com/insider?cid=Dcom_navigation_20200929_insider_footer">
             {" "}
@@ -69,7 +72,7 @@ const Footer = () => {
             <p>Access Over 30,000+ Digital Comics</p>
           </a>
         </div>
-
+        </div>
         <div className="footer__part5">
           <p>Follow Marvel</p>
           <span>

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useCharacters } from "../../../../contexts/CharactersContextProvider";
 import "./EditCharacter.css";
+import CategorySelect from "../../CategorySelect/CategorySelect";
+
 
 const EditCharacter = () => {
     const naigate = useNavigate()
@@ -87,10 +89,11 @@ const EditCharacter = () => {
           type="text"
           placeholder="Description"
         />
+        <CategorySelect character={character} setCharacter={setCharacter} />
+
       </div>
-      {/* 
-      <CategorySelect product={product} setProduct={setProduct} />
-      <GenderSelect product={product} setProduct={setProduct} /> */}
+
+
 
       <div className="editCharacter__button-div">
         <button onClick={scanInp} >EDIT</button>

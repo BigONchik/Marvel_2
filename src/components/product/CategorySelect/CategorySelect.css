@@ -1,0 +1,20 @@
+.categorySelect{
+    display: flex;
+    flex-direction: column;
+}
+
+.categorySelect select{
+    width: 500px;
+    height: 50px;
+    border: 1px solid #151515;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+ .categorySelect select:focus {
+    border: 2px solid #e72b30;
+    outline: none;
+  }

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useCharacters } from "../../../../contexts/CharactersContextProvider";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import "./CharacterList.css"
 
@@ -22,3 +22,4 @@ const CharactersList = () => {
 };
 
 export default CharactersList;
+

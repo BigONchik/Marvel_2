@@ -20,6 +20,7 @@ import AddCharacter from "../components/product/Characters/AddCharacter/AddChara
 import EditCharacter from "../components/product/Characters/EditCharacter/EditCharacter";
 import Cart from "../components/Cart/Cart";
 import AddProduct from "../components/product/AddProduct/AddProduct";
+import PersonalPage from "../pages/PersonalPage/PersonalPage";
 
 const MainRoutes = () => {
   return (
@@ -29,13 +30,14 @@ const MainRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register-success" element={<RegisterSuccess />} />
       <Route path="/password-reset" element={<PasswordReset />} />
+      <Route path="personal_page" element={<PersonalPage/>}/>
 
 
       {/* ROUTES FOR CHARACTERS START */}
       <Route path="/characters_page" element={<CharactersPage/>}/>
       <Route path="/character/:id" element={<CharacterDetails />} />
       <Route path="/characters" element={<CharactersList/>} />
-      <Route path="/add" element={<AddCharacter/>} />
+      <Route path="/add_character" element={<AddCharacter/>} />
       <Route path="/edit/:id" element={<EditCharacter />} />
       {/* ROUTES FOR CHARACTERS END */}
 

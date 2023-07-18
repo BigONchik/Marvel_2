@@ -22,7 +22,7 @@
 }
 .character__card:hover img {
   transform: scale(1.1);
-  transition: 0.3s ease-in;
+  transition: 0s ease;
 }
 
 .character__card img::after {
@@ -48,7 +48,7 @@
 }
 .character__card p {
   color: rgb(177, 176, 176);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   margin-left: 12px;
@@ -73,12 +73,7 @@
   transform: translateY(100%);
   transition-property: transform, height;
   transition-duration: 0.2s;
-    transition-timing-function: cubic-bezier(
-        0.5,
-        0,
-        0.75,
-        0.5
-    ); 
+  transition-timing-function: cubic-bezier(0.5, 0, 0.75, 0.5);
 }
 
 .character__card:hover .image-container::after {
@@ -86,5 +81,35 @@
   transition: height 0.2s ease-in-out;
 }
 .character__card:hover p {
-    color: white;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .character__card {
+    width: 12rem;
+    height: 24rem;
   }
+}
+@media (max-width: 376px) {
+  .character__card {
+    width: 10rem;
+    height: 20rem;
+  }
+}
+@media (max-width: 320px) {
+  .character__card {
+    width: 9rem;
+    height: 20rem;
+  }
+}
+@media (max-width: 376px) {
+  .character__card p {
+    margin-top: 70px;
+  }
+}
+
+@media (max-width: 376px) {
+  .character__card p {
+    margin-top: 80px;
+  }
+}

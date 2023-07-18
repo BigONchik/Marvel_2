@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Button, Container, Form, Spinner } from "react-bootstrap";
+import { Button, Spinner } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContextProvider";
-import "./Auth.css"
-
+import "./Auth.css";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -38,50 +37,72 @@ const Register = () => {
   }
 
   return (
-    <Container className="w-50">
-      {error ? <h2>{error}</h2> : null}
-      <Form.Control
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="email"
-      />
-      <Form.Control
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="password"
-      />
-      <Form.Control
-        onChange={(e) => setPasswordConfirm(e.target.value)}
-        placeholder="confirm password"
-      />
-      <Form.Control
-        onChange={(e) => setFirstName(e.target.value)}
-        placeholder="first name"
-      />
-      <Form.Control
-        onChange={(e) => setLastName(e.target.value)}
-        placeholder="last name"
-      />
-      <Form.Control
-        onChange={(e) => setUserName(e.target.value)}
-        placeholder="user name"
-      />
+    <div className="Auth">
+      <p>SIGN UP FORM</p>
+      <div className="auth__inputs-div">
+        <input
+          name="email"
+          value={email}
+          type="text"
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+        />
+        <input
+          name="firstName"
+          value={firstName}
+          type="text"
+          onChange={(e) => setFirstName(e.target.value)}
+          placeholder="first name"
+        />
+        <input
+          name="lastName"
+          value={lastName}
+          type="text"
+          onChange={(e) => setLastName(e.target.value)}
+          placeholder="last name"
+        />
 
-      {loading ? (
-        <Button className="btn-danger" disabled>
-          <Spinner
-            as="span"
-            animation="grow"
-            size="sm"
-            role="status"
-            aria-hidden="true"
-          />
-          Loading...
-        </Button>
-      ) : (
-        <Button className="btn-danger" onClick={handleSave}>
-          REGISTER
-        </Button>
-      )}
-    </Container>
+        <input
+          name="password"
+          value={password}
+          type="text"
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+        />
+        <input
+          name="passwordConfirm"
+          value={passwordConfirm}
+          type="text"
+          onChange={(e) => setPasswordConfirm(e.target.value)}
+          placeholder="confirm password"
+        />
+        <input
+          name="userName"
+          value={userName}
+          type="text"
+          onChange={(e) => setUserName(e.target.value)}
+          placeholder="User Name"
+        />
+      </div>
+      <div className="auth__buttons-div">
+        {loading ? (
+          <Button className="btn-danger" disabled>
+            <Spinner
+              as="span"
+              animation="grow"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
+            Loading...
+          </Button>
+        ) : (
+          <Button className="btn-danger" onClick={handleSave}>
+            REGISTER
+          </Button>
+        )}
+      </div>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useCharacters } from "../../../../contexts/CharactersContextProvider";
 import "./AddCharacter.css";
+import CategorySelect from "../../CategorySelect/CategorySelect";
 
 const AddCharacter = () => {
   const [character, setCharacter] = useState({
@@ -11,7 +12,7 @@ const AddCharacter = () => {
     description: "",
   });
 
-  const {   addCharacter } = useCharacters();
+  const { addCharacter } = useCharacters();
 
   const scanInp = () => {
     if (
@@ -37,7 +38,7 @@ const AddCharacter = () => {
     <div className="AddCharacter">
       <p>ADD CHARACTER</p>
       <div className="addCharacter__inputs-div">
-      <input
+        <input
           name="image1"
           value={character.image1}
           onChange={handleInp}
@@ -72,17 +73,10 @@ const AddCharacter = () => {
           type="text"
           placeholder="Description"
         />
-          </div>
-        {/* 
-      <CategorySelect product={product} setProduct={setProduct} />
-      <GenderSelect product={product} setProduct={setProduct} /> */}
+        <CategorySelect character={character} setCharacter={setCharacter} />
+      </div>
 
-          <button
-            onClick={scanInp}
-          >
-            ADD
-          </button>
-    
+      <button onClick={scanInp}>ADD</button>
     </div>
   );
 };
