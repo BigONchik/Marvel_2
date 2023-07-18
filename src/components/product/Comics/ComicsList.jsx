@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Button, Container, Pagination } from "react-bootstrap";
 import { useNavigate, useSearchParams } from "react-router-dom";
+
+import ProductCard from "../ComicsCard/ComicsCard";
+import ComicsPage from "../../../pages/ComicsPage";
 import { useProduct } from "../../../contexts/ProductContextProvider";
 
-import ProductCard from "../ProductCard/ProductCard";
-import ComicsPage from "../../../pages/ComicsPage";
-
 const ComicsList = () => {
-  const { getComics, comics, pages } = useProduct();
+  const { getProducts, product, pages } = useProduct();
   const [currentPage, setCurrentPage] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -28,7 +28,7 @@ const ComicsList = () => {
   }
 
   useEffect(() => {
-    getComics();
+    getProducts();
   }, [searchParams]);
 
   const handlePrev = () => {
@@ -46,8 +46,8 @@ const ComicsList = () => {
       <ComicsPage />
       <Button onClick={() => navigate("/add")}>ADD COMICS</Button>
       <Container className="d-flex flex-wrap justify-content-between">
-        {comics &&
-          comics.map((item) => <ProductCard key={item.id} item={item} />)}
+        {product &&
+          product.map((item) => <ProductCard key={item.id} item={item} />)}
         <ComicsPage />
         <Container>
           <Pagination>

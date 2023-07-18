@@ -2,17 +2,13 @@ import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import { useProduct } from "../../../contexts/ProductContextProvider";
-import { useAuth } from "../../../contexts/AuthContextProvider";
 
-const ProductDetails = () => {
-  const {
-    oneProduct,
-    getOneProduct,
-    addReview,
-    deleteReview,
-    saveEditedReview,
-  } = useProduct();
+import { useAuth } from "../../../contexts/AuthContextProvider";
+import { useProduct } from "../../../contexts/ProductContextProvider";
+
+const ComicsDetails = () => {
+  const { oneComics, getOneComics, addReview, deleteReview, saveEditedReview } =
+    useProduct();
   const { currentUser } = useAuth();
 
   const [text, setText] = useState("");
@@ -20,14 +16,14 @@ const ProductDetails = () => {
 
   const { id } = useParams();
   useEffect(() => {
-    getOneProduct(id);
+    getOneComics(id);
   }, []);
 
   const handleAddReview = (e) => {
     e.preventDefault();
-    const newReview = { text, product: id };
+    const newReview = { text, comics: id };
     addReview(newReview);
-    getOneProduct(id);
+    getOneComics(id);
     setText("");
   };
 
@@ -38,7 +34,7 @@ const ProductDetails = () => {
   const handleSave = () => {
     const editedReview = {
       text: commentToEdit.text,
-      product: commentToEdit.product,
+      comics: commentToEdit.product,
     };
     saveEditedReview(editedReview, commentToEdit.id);
     setCommentToEdit(null);
@@ -46,13 +42,13 @@ const ProductDetails = () => {
 
   return (
     <div>
-      <img width={500} src={oneProduct?.image} alt="" />
-      <h3>{oneProduct?.title}</h3>
-      <p>{oneProduct?.category.title}</p>
-      <p>{oneProduct?.price} $</p>
-      <p>{oneProduct?.description}</p>
-      <Button variant={oneProduct?.favorite_by_user ? "success" : "secondary"}>
-        {oneProduct?.favorite_by_user
+      <img width={500} src={oneComics?.image} alt="" />
+      <h3>{oneComics?.title}</h3>
+      <p>{oneComics?.category.title}</p>
+      <p>{oneComics?.price} $</p>
+      <p>{oneComics?.description}</p>
+      <Button variant={oneComics?.favorite_by_user ? "success" : "secondary"}>
+        {oneComics?.favorite_by_user
           ? "Remove from favorites"
           : "Add to Favorites"}
       </Button>
@@ -70,7 +66,7 @@ const ProductDetails = () => {
       </form>
 
       <div>
-        {oneProduct?.reviews.map((item) => (
+        {oneComics?.reviews.map((item) => (
           <div key={item.id} className="border m-4">
             <h5>{item.author}</h5>
             {commentToEdit && commentToEdit.id === item.id ? (
@@ -103,4 +99,4 @@ const ProductDetails = () => {
   );
 };
 
-export default ProductDetails;
+export default ComicsDetails;

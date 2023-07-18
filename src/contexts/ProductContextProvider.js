@@ -7,15 +7,8 @@ import { getTokens } from "../helpers/functions";
 export const productContext = createContext();
 export const useProduct = () => useContext(productContext);
 
-const categories = [
-  { id: 1, name: "Category 1" },
-  { id: 2, name: "Category 2" },
-  { id: 3, name: "Category 3" },
-  // и т.д.
-];
-
 const INIT_STATE = {
-  comics: [],
+  product: [],
   pages: 0,
   categories: [],
   oneProduct: null,
@@ -24,15 +17,21 @@ const INIT_STATE = {
 
 function reducer(state = INIT_STATE, action) {
   switch (action.type) {
-    case "GET_COMICS":
+    case "GET_PRODUCTS":
       return {
         ...state,
-        comics: action.payload.results,
+        product: action.payload.results,
         pages: Math.ceil(action.payload.count / 6),
       };
 
+    case "CREATE_CATEGORY":
+      return {
+        ...state,
+        categories: [...state.categories, action.payload],
+      };
+
     case "GET_CATEGORIES":
-      return { ...state, category: action.payload };
+      return { ...state, categories: action.payload };
 
     case "GET_ONE_PRODUCT":
       return { ...state, oneProduct: action.payload };
@@ -49,22 +48,36 @@ const ProductContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
   const navigate = useNavigate();
 
-  async function getComics() {
+  async function getProducts() {
     try {
       const res = await axios(
         `${API}/comics/${window.location.search}`,
         getTokens()
       );
-      dispatch({ type: "GET_COMICS", payload: res.data });
+      dispatch({ type: "GET_PRODUCTS", payload: res.data });
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  async function createCategory(categoryData) {
+    try {
+      const res = await axios.post(
+        `${API}/categories/create-list`,
+        categoryData,
+        getTokens()
+      );
+      dispatch({ type: "CREATE_CATEGORY", payload: res.data });
+      console.log("Категория успешно создана:", res.data);
+    } catch (error) {
+      console.error("Ошибка при создании категории:", error);
     }
   }
 
   async function getCategories() {
     try {
       const res = await axios(`${API}/category/create-list/`);
-      dispatch({ type: "GET_CATEGORIES", payload: res.data.results });
+      dispatch({ type: "GET_CATEGORIES", payload: res.data });
     } catch (error) {
       console.log(error);
     }
@@ -72,17 +85,18 @@ const ProductContextProvider = ({ children }) => {
 
   async function createProduct(newProduct) {
     try {
-      await axios.post(`${API}/comics/`, newProduct, getTokens());
+      await axios.post(`${API}/comics/create/`, newProduct, getTokens());
       navigate("/comics");
     } catch (error) {
       console.log(error);
     }
+    console.log(newProduct.data);
   }
 
-  async function deleteProduct(id) {
+  async function deleteComics(id) {
     try {
       await axios.delete(`${API}/comics/delete/${id}/`, getTokens());
-      getComics();
+      getProducts();
     } catch (error) {
       console.log(error);
     }
@@ -97,14 +111,14 @@ const ProductContextProvider = ({ children }) => {
     }
   }
 
-  async function updateProduct(id, editedProduct) {
+  async function updateProduct(id, editedComics) {
     try {
       await axios.patch(
         `${API}/comics/update/${id}/`,
-        editedProduct,
+        editedComics,
         getTokens()
       );
-      navigate("/products");
+      navigate("/comics");
     } catch (error) {
       console.log(error);
     }
@@ -113,7 +127,7 @@ const ProductContextProvider = ({ children }) => {
   // async function toggleFavorites(id) {
   //   try {
   //     await axios(`${API}/products/${id}/toggle_favorites/`, getTokens());
-  //     getComics();
+  //     getProduct();
   //   } catch (error) {
   //     console.log(error);
   //   }
@@ -168,13 +182,14 @@ const ProductContextProvider = ({ children }) => {
   // }
 
   const values = {
-    getComics,
-    products: state.products,
+    getProducts,
+    product: state.product,
     pages: state.pages,
     categories: state.categories,
+    createCategory,
     getCategories,
     createProduct,
-    deleteProduct,
+    deleteComics,
 
     getOneProduct,
     oneProduct: state.oneProduct,

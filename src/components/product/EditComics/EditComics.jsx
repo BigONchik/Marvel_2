@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useProduct } from "../../../contexts/ProductContextProvider";
 
-const EditProduct = () => {
+const EditComics = () => {
   const {
     categories,
     getCategories,
@@ -20,38 +20,43 @@ const EditProduct = () => {
 
   useEffect(() => {
     if (oneProduct) {
-      setTitle(oneProduct.title);
+      setName(oneProduct.title);
+      setAuthor(oneProduct.author);
       setDescription(oneProduct.description);
       setPrice(oneProduct.price);
       setCategory(oneProduct.category.id);
     }
   }, [oneProduct]);
 
-  const [title, setTitle] = useState("");
+  const [name, setName] = useState("");
+  const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
+  const [amountOfPages, setAmountOfPages] = useState(0);
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
-  const [image, setImage] = useState("");
 
+  // const [image, setImage] = useState("");
   const handleSave = () => {
     const newProduct = new FormData();
-    newProduct.append("title", title);
-    newProduct.append("price", price);
+    newProduct.append("name", name);
+    newProduct.append("author", author);
     newProduct.append("description", description);
+    newProduct.append("price", price);
+    newProduct.append("amount_of_pages", amountOfPages);
     newProduct.append("category", category);
-    if (image) {
-      newProduct.append("image", image);
-    }
+    // if (image) {
+    //   newProduct.append("image", image);
+    // }
     updateProduct(id, newProduct);
   };
   return (
     <div className="w-50 mt-5 m-auto">
-      <h2>EDIT PRODUCT</h2>
+      <h2>EDIT COMICS</h2>
       <Form.Control
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(e) => setName(e.target.value)}
         placeholder="title"
         type="text"
-        value={title}
+        value={name}
       />
       <Form.Control
         onChange={(e) => setDescription(e.target.value)}
@@ -77,8 +82,8 @@ const EditProduct = () => {
           </option>
         ))}
       </Form.Select>
-      <p>IMAGE BEFORE : {oneProduct ? oneProduct.image : "image is empty"}</p>
-      <Form.Control type="file" onChange={(e) => setImage(e.target.files[0])} />
+      {/* <p>IMAGE BEFORE : {oneProduct ? oneProduct.image : "image is empty"}</p>
+      <Form.Control type="file" onChange={(e) => setImage(e.target.files[0])} /> */}
 
       <Button className="mt-3" onClick={handleSave}>
         save changes
@@ -87,4 +92,4 @@ const EditProduct = () => {
   );
 };
 
-export default EditProduct;
+export default EditComics;

@@ -3,8 +3,8 @@ import Card from "react-bootstrap/Card";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useProduct } from "../../../contexts/ProductContextProvider";
 
-function ProductCard({ item }) {
-  const { deleteProduct, toggleFavorites, deleteFromFavorites } = useProduct();
+function ComicsCard({ item }) {
+  const { deleteComics, toggleFavorites, deleteFromFavorites } = useProduct();
   const navigate = useNavigate();
   const location = useLocation();
   return (
@@ -13,12 +13,12 @@ function ProductCard({ item }) {
       <Card.Body>
         <Card.Title
           style={{ cursor: "pointer" }}
-          onClick={() => navigate(`/products/${item.id}`)}
+          onClick={() => navigate(`/comics/detail/${item.id}`)}
         >
-          {item.title}
+          {item.name}
         </Card.Title>
         <Card.Text>{item.price} $</Card.Text>
-        {location.pathname === "/products" ? (
+        {location.pathname === "/comics/" ? (
           <Button
             variant={item.favorite_by_user ? "success" : "secondary"}
             onClick={() => toggleFavorites(item.id)}
@@ -35,7 +35,7 @@ function ProductCard({ item }) {
 
         {item.is_author ? (
           <>
-            <Button variant="primary" onClick={() => deleteProduct(item.id)}>
+            <Button variant="primary" onClick={() => deleteComics(item.id)}>
               Delete
             </Button>
             <Button
@@ -51,4 +51,4 @@ function ProductCard({ item }) {
   );
 }
 
-export default ProductCard;
+export default ComicsCard;
