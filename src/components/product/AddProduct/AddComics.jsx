@@ -19,6 +19,7 @@ const AddComics = () => {
 
   const handleSave = () => {
     const formData = new FormData();
+
     formData.append("name", name);
     formData.append("author", author);
     formData.append("description", description);

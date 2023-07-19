@@ -1,0 +1,23 @@
+.carousel__slide img {
+  width: 100%;
+}
+.carousel__slide {
+  height: 50rem;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.socials {
+  margin-left: 86rem;
+  margin-top: -2rem;
+}
+.socials img {
+  width: 25px;
+  height: auto;
+  margin-right: 0.5rem;
+}
+.socials img:hover {
+  transform: scale(1.1);
+}
+
+.socials a {
+  text-decoration: none;
+}

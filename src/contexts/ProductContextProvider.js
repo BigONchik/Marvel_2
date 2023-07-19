@@ -10,6 +10,7 @@ export const useProduct = () => useContext(productContext);
 
 const INIT_STATE = {
   product: [],
+  characters: [],
   pages: 0,
   categories: [],
   oneProduct: null,
@@ -21,7 +22,14 @@ function reducer(state = INIT_STATE, action) {
     case "GET_PRODUCTS":
       return {
         ...state,
-        product: action.payload.results,
+        product: action.payload,
+        pages: Math.ceil(action.payload.count / 6),
+      };
+
+    case "GET_CHARACTERS":
+      return {
+        ...state,
+        characters: action.payload,
         pages: Math.ceil(action.payload.count / 6),
       };
 
@@ -36,6 +44,9 @@ function reducer(state = INIT_STATE, action) {
 
     case "GET_ONE_PRODUCT":
       return { ...state, oneProduct: action.payload };
+
+    case "GET_ONE_CHARACTERS":
+      return { ...state, oneCharacters: action.payload };
 
     case "GET_FAVORITES":
       return { ...state, favorites: action.payload };
@@ -56,11 +67,23 @@ const ProductContextProvider = ({ children }) => {
         getTokens()
       );
       dispatch({ type: "GET_PRODUCTS", payload: res.data });
+      // console.log(res);
     } catch (error) {
       console.log(error);
     }
   }
-
+  async function getCharacters() {
+    try {
+      const res = await axios(
+        `${API}/characters/${window.location.search}`,
+        getTokens()
+      );
+      dispatch({ type: "GET_CHARACTERS", payload: res.data });
+      // console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   async function createCategory(categoryData) {
     try {
       const res = await axios.post(
@@ -86,12 +109,22 @@ const ProductContextProvider = ({ children }) => {
 
   async function createProduct(newProduct) {
     try {
-      await axios.post(`${API}/comics/create/`, newProduct, getTokens());
+      await axios.post(`${API}/cha/create/`, newProduct, getTokens());
       navigate("/comics");
     } catch (error) {
       console.log(error);
     }
     console.log(newProduct.data);
+  }
+
+  async function createCharacters(newCharacters) {
+    try {
+      await axios.post(`${API}/cha/create/`, newCharacters, getTokens());
+      navigate("/comics");
+    } catch (error) {
+      console.log(error);
+    }
+    console.log(newCharacters.data);
   }
 
   async function deleteComics(id) {
@@ -103,10 +136,28 @@ const ProductContextProvider = ({ children }) => {
     }
   }
 
+  async function deleteCharacters(id) {
+    try {
+      await axios.delete(`${API}/characters/delete/${id}/`, getTokens());
+      getCharacters();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async function getOneProduct(id) {
     try {
       const res = await axios(`${API}/comics/detail/${id}/`, getTokens());
       dispatch({ type: "GET_ONE_PRODUCT", payload: res.data });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function getOneCharacter(id) {
+    try {
+      const res = await axios(`${API}/characters/detail/${id}/`, getTokens());
+      dispatch({ type: "GET_ONE_CHARACTERS", payload: res.data });
     } catch (error) {
       console.log(error);
     }
@@ -125,6 +176,18 @@ const ProductContextProvider = ({ children }) => {
     }
   }
 
+  async function updateCharacters(id, editedCharacters) {
+    try {
+      await axios.patch(
+        `${API}/comics/update/${id}/`,
+        editedCharacters,
+        getTokens()
+      );
+      navigate("/characters");
+    } catch (error) {
+      console.log(error);
+    }
+  }
   // async function toggleFavorites(id) {
   //   try {
   //     await axios(`${API}/products/${id}/toggle_favorites/`, getTokens());
@@ -182,19 +245,27 @@ const ProductContextProvider = ({ children }) => {
   //   }
   // }
 
+  console.log(state.product);
+
   const values = {
     getProducts,
     product: state.product,
+    characters: state.characters,
     pages: state.pages,
     categories: state.categories,
     createCategory,
     getCategories,
     createProduct,
+    createCharacters,
     deleteComics,
+    deleteCharacters,
 
     getOneProduct,
+    getOneCharacter,
     oneProduct: state.oneProduct,
+    oneCharacters: state.oneCharacters,
     updateProduct,
+    updateCharacters,
 
     // toggleFavorites,
     // getFavorites,

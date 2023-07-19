@@ -1,90 +1,75 @@
-// import React, { useEffect, useState } from "react";
-// import { Button, Form } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Button, Form } from "react-bootstrap";
+import { useProduct } from "../../../contexts/ProductContextProvider";
 
-// import ProductContextProvider, {
-//   useProduct,
-// } from "../../../contexts/ProductContextProvider";
+const AddCharacters = () => {
+  const { categories, getCategories, createCharacters } = useProduct();
 
-// const AddCharacters = () => {
-//   const { categories, getCategories, createProduct, createCategory } =
-//     useProduct();
+  const [name, setName] = useState("");
+  const [shortDescription, setShortDescription] = useState("");
+  const [biography, setBiography] = useState("");
+  const [image, setImage] = useState(null);
+  const [category, setCategory] = useState("");
 
-//   useEffect(() => {
-//     getCategories();
-//   }, []);
+  useEffect(() => {
+    getCategories();
+  }, []);
 
-//   const [name, setName] = useState("");
-//   const [description, setDescription] = useState("");
-//   const [author, setAuthor] = useState("");
-//   const [price, setPrice] = useState("");
-//   const [category, setCategory] = useState("");
-//   const [image, setImage] = useState("");
+  const handleSave = () => {
+    const formData = new FormData();
 
-//   const handleSave = () => {
-//     const newProduct = new FormData();
-//     newProduct.append("name", name);
-//     newProduct.append("price", price);
-//     newProduct.append("author", author);
-//     newProduct.append("description", description);
-//     newProduct.append("category", category);
-//     if (image) {
-//       newProduct.append("image", image);
-//     }
-//     createProduct(newProduct);
-//   };
+    formData.append("name", name);
+    formData.append("short_description", shortDescription);
+    formData.append("biography", biography);
+    formData.append("category", category);
 
-//   useEffect(() => {
-//     getCategories();
-//   }, []);
-//   console.log(categories);
+    createCharacters(formData);
+  };
+  console.log(image);
+  console.log(categories);
 
-//   return (
-//     <ProductContextProvider>
-//       <div className="w-50 mt-5 m-auto">
-//         <h2>CREATE PRODUCT</h2>
-//         <Form.Control
-//           onChange={(e) => setName(e.target.value)}
-//           placeholder="name"
-//           type="text"
-//         />
-//         <Form.Control
-//           onChange={(e) => setDescription(e.target.value)}
-//           placeholder="description"
-//           type="text"
-//         />
-//         <Form.Control
-//           onChange={(e) => setAuthor(e.target.value)}
-//           placeholder="author"
-//           type="text"
-//         />
-//         <Form.Control
-//           onChange={(e) => setPrice(e.target.value)}
-//           placeholder="price"
-//           type="text"
-//         />
+  return (
+    <div className="w-50 mt-5 m-auto">
+      <h2>CREATE PRODUCT</h2>
+      <Form.Control
+        onChange={(e) => setName(e.target.value)}
+        placeholder="name"
+        type="text"
+      />
+      <Form.Control
+        onChange={(e) => setShortDescription(e.target.value)}
+        placeholder="Short description"
+        type="text"
+      />
+      <Form.Control
+        onChange={(e) => setBiography(e.target.value)}
+        placeholder="Biography"
+        type="text"
+      />
 
-//         <Form.Select
-//           onChange={(e) => setCategory(e.target.value)}
-//           aria-label="Default select example"
-//         >
-//           <option>Open this select menu</option>
-//           {categories.map((item) => (
-//             <option value={item.id} key={item.id}>
-//               {item.title}
-//             </option>
-//           ))}
-//         </Form.Select>
-//         <Form.Control
-//           type="file"
-//           onChange={(e) => setImage(e.target.files[0])}
-//         />
+      <Form.Select
+        onChange={(e) => setCategory(e.target.value)}
+        aria-label="Default select example"
+      >
+        <option>Open this select menu</option>
+        {categories.map((item) => (
+          <option value={item.id} key={item.id}>
+            {item.title}
+          </option>
+        ))}
+      </Form.Select>
 
-//         <Button className="mt-3" onClick={handleSave}>
-//           Create Product
-//         </Button>
-//       </div>
-//     </ProductContextProvider>
-//   );
-// };
+      <Form.Control
+        type="file"
+        onChange={(e) => setImage(e.target.files[0])}
+        placeholder="image"
+      />
 
-// export default AddCharacters;
+      <Button className="mt-3" onClick={handleSave}>
+        Create Character
+      </Button>
+    </div>
+  );
+};
+
+export default AddCharacters;

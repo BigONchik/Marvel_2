@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useProduct } from "../../contexts/ProductContextProvider";
 
-import ProductCard from "../product/ComicsCard/ComicsCard";
+import ProductCard from "../product/ComicsCard/ProductCard";
 
 const Favorites = () => {
   const { favorites, getFavorites } = useProduct();

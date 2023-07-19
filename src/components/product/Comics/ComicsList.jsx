@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Container, Pagination } from "react-bootstrap";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-import ProductCard from "../ComicsCard/ComicsCard";
+import ProductCard from "../ComicsCard/ProductCard";
 import ComicsPage from "../../../pages/ComicsPage";
 import { useProduct } from "../../../contexts/ProductContextProvider";
 
@@ -48,7 +48,7 @@ const ComicsList = () => {
       <Container className="d-flex flex-wrap justify-content-between">
         {product &&
           product.map((item) => <ProductCard key={item.id} item={item} />)}
-        <ComicsPage />
+
         <Container>
           <Pagination>
             <Pagination.Prev onClick={handlePrev} />
