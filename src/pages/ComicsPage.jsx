@@ -1,9 +1,13 @@
-// import React, { useState } from "react";
-// import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import React, { useEffect, useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import ComicsCard from "../components/product/ComicsCard/ComicsCard";
+import { CardGroup, Container, Pagination } from "react-bootstrap";
+import { useProduct } from "../contexts/ProductContextProvider";
+import { useSearchParams } from "react-router-dom";
 
-// const ComicsPage = () => {
+const ComicsPage = () => {
 //   const slidesData = [
 //     {
 //       id: 1,
@@ -42,7 +46,11 @@
 //     },
 //   ];
 
-//   const [slides, setSlides] = useState(slidesData);
+  const { getProducts, product, pages } = useProduct();
+  const [searchParams, setSearchParams] = useSearchParams();
+  useEffect(() => {
+    getProducts();
+  }, [searchParams]);
 
 //   const NextArrow = (props) => {
 //     const { className, style, onClick } = props;
@@ -128,42 +136,12 @@
 //     ),
 //   };
 
-//   return (
-//     <Slider {...settings}>
-//       {slides.map((slide) => (
-//         <div key={slide.id} onClick={() => handleSlideClick(slide.id)}>
-//           <div
-//             style={{
-//               position: "relative",
-//               width: "100%",
-//               height: "auto",
-//               display: "flex",
-//               justifyContent: "center",
-//             }}
-//           >
-//             <img
-//               src={slide.imageUrl}
-//               alt={slide.alt}
-//               style={{ maxWidth: "100%", maxHeight: "100%" }}
-//             />
-//             <div
-//               style={{
-//                 position: "absolute",
-//                 top: "50%",
-//                 left: "50%",
-//                 transform: "translate(-50%, -50%)",
-//                 textAlign: "center",
-//                 color: "#fff",
-//                 zIndex: 2,
-//               }}
-//             >
-//               <h3>{slide.text}</h3>
-//             </div>
-//           </div>
-//         </div>
-//       ))}
-//     </Slider>
-//   );
-// };
-
-// export default ComicsPage;
+  return (
+    <Container className="d-flex flex-wrap justify-content-between">
+      {product.map((item) => (
+        <ComicsCard key={item.id} item={item} />
+      ))}
+    </Container>
+  );
+      }
+export default ComicsPage;

@@ -1,11 +1,11 @@
 import React from "react";
 import "./PersonalPage.css";
 import { useAuth } from "../../contexts/AuthContextProvider";
-import { ADMIN } from "../../helpers/consts";
 import { useNavigate } from "react-router-dom";
+import { ADMIN } from "../../helpers/consts";
 const PersonalPage = () => {
   const navigate = useNavigate();
-  const { currentUser, logout, checkAuth } = useAuth();
+  const { currentUser} = useAuth();
   return (
     <div className="PersonalPage">
       <div className="personalPage__info">
@@ -19,7 +19,7 @@ const PersonalPage = () => {
         <input type="text" value={currentUser.lastName} />
       </div>
       <div className="personalPage__buttons">
-        {currentUser.email === ADMIN ? (
+        {currentUser.is_admin ? (
           <span className="personal__buttonsForAdmin">
             <button onClick={() => navigate("/add_character")}>
               ADD CHARACTER

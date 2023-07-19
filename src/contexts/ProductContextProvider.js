@@ -1,95 +1,213 @@
-// import React, { createContext, useContext, useReducer } from "react";
-// import { ACTIONS, API } from "../helpers/consts";
-// import { useNavigate } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
+import React, { createContext, useContext, useReducer } from "react";
+import { useNavigate } from "react-router-dom";
+import { API } from "../helpers/consts";
+import { getTokens } from "../helpers/functions";
 
-// export const productContext = createContext();
+export const productContext = createContext();
+export const useProduct = () => useContext(productContext);
 
-// export const useProducts = () => {
-//   return useContext(productContext);
-// };
 
-// const INIT_STATE = {
-//   products: [],
-//   productDetails: null,
-// };
+const INIT_STATE = {
+  product: [],
+  pages: 0,
+  categories: [],
+  oneProduct: null,
+  favorites: [],
+};
 
-// const reducer = (state = INIT_STATE, action) => {
-//   switch (action.type) {
-//     case ACTIONS.GET_PRODUCTS:
-//       return { ...state, products: action.payload };
+function reducer(state = INIT_STATE, action) {
+  switch (action.type) {
+    case "GET_PRODUCTS":
+      return {
+        ...state,
+        product: action.payload.results,
+        pages: Math.ceil(action.payload.count / 6),
+      };
 
-//     case ACTIONS.GET_PRODUCT_DETAILS:
-//       return { ...state, productDetails: action.payload };
+    case "CREATE_CATEGORY":
+      return {
+        ...state,
+        categories: [...state.categories, action.payload],
+      };
 
-//     default:
-//       return state;
-//   }
-// };
+    case "GET_CATEGORIES":
+      return { ...state, categories: action.payload };
 
-// const ProductContextProvider = ({ children }) => {
-//   const [state, dispatch] = useReducer(reducer, INIT_STATE);
-//   const navigate = useNavigate();
+    case "GET_ONE_PRODUCT":
+      return { ...state, oneProduct: action.payload };
 
-//   //! post request (CREATE)
-//   const addProduct = async (newProduct) => {
-//     await axios.post(API, newProduct);
-//   };
+    case "GET_FAVORITES":
+      return { ...state, favorites: action.payload };
 
-//   //! get request (READ)
-//   const getProducts = async () => {
-//     const { data } = await axios(`${API}${window.location.search}`);
-//     dispatch({ type: ACTIONS.GET_PRODUCTS, payload: data });
-//   };
+    default:
+      return state;
+  }
+}
 
-//   //! delete request (DELETE)
-//   const deleteProduct = async (id) => {
-//     await axios.delete(`${API}/${id}`);
-//     getProducts();
-//   };
+const ProductContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, INIT_STATE);
+  const navigate = useNavigate();
 
-//   //! get one product info
-//   const getProductDetails = async (id) => {
-//     const { data } = await axios(`${API}/${id}`);
-//     dispatch({ type: ACTIONS.GET_PRODUCT_DETAILS, payload: data });
-//   };
+  async function getProducts() {
+    try {
+      const res = await axios(
+        `${API}/comics/${window.location.search}`,
+        getTokens()
+      );
+      dispatch({ type: "GET_PRODUCTS", payload: res.data });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-//   //! patch request (UPDATE PRODUCT)
-//   const saveEditedProduct = async (editedProduct) => {
-//     await axios.patch(`${API}/${editedProduct.id}`, editedProduct);
-//     navigate(`/products`);
-//   };
+  async function createCategory(categoryData) {
+    try {
+      const res = await axios.post(
+        `${API}/categories/create-list`,
+        categoryData,
+        getTokens()
+      );
+      dispatch({ type: "CREATE_CATEGORY", payload: res.data });
+      console.log("Категория успешно создана:", res.data);
+    } catch (error) {
+      console.error("Ошибка при создании категории:", error);
+    }
+  }
 
-// //   const fetchByParams = async (query, value) => {
-// //     const search = new URLSearchParams(window.location.search);
-// //     if (value === "All") {
-// //       search.delete(query);
-// //     } else if (query === "_sort") {
-// //       search.set(query, "price");
-// //       search.set("_order", value);
-// //     } else {
-// //       search.set(query, value);
-// //     }
+  async function getCategories() {
+    try {
+      const res = await axios(`${API}/category/create-list/`);
+      dispatch({ type: "GET_CATEGORIES", payload: res.data });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-// //     const url = `${window.location.pathname}?${search.toString()}`;
-// //     navigate(url);
-// //   };
+  async function createProduct(newProduct) {
+    try {
+      await axios.post(`${API}/comics/create/`, newProduct, getTokens());
+      navigate("/comics");
+    } catch (error) {
+      console.log(error);
+    }
+    console.log(newProduct.data);
+  }
 
-//   const values = {
-//     addProduct,
-//     getProducts,
-//     products: state.products,
-//     deleteProduct,
-//     getProductDetails,
-//     productDetails: state.productDetails,
-//     saveEditedProduct,
-//     // fetchByParams,
-//     recentlyWatched: state.recentlyWatched,
-//   };
+  async function deleteComics(id) {
+    try {
+      await axios.delete(`${API}/comics/delete/${id}/`, getTokens());
+      getProducts();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-//   return (
-//     <productContext.Provider value={values}>{children}</productContext.Provider>
-//   );
-// };
+  async function getOneProduct(id) {
+    try {
+      const res = await axios(`${API}/comics/detail/${id}/`, getTokens());
+      dispatch({ type: "GET_ONE_PRODUCT", payload: res.data });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-// export default ProductContextProvider;
+  async function updateProduct(id, editedComics) {
+    try {
+      await axios.patch(
+        `${API}/comics/update/${id}/`,
+        editedComics,
+        getTokens()
+      );
+      navigate("/comics");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // async function toggleFavorites(id) {
+  //   try {
+  //     await axios(`${API}/products/${id}/toggle_favorites/`, getTokens());
+  //     getProduct();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  // async function getFavorites() {
+  //   try {
+  //     const res = await axios(`${API}/favorites/`, getTokens());
+  //     dispatch({ type: "GET_FAVORITES", payload: res.data.results });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  // async function deleteFromFavorites(id) {
+  //   try {
+  //     await axios(`${API}/products/${id}/toggle_favorites/`, getTokens());
+  //     getFavorites();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  // async function addReview(review) {
+  //   try {
+  //     await axios.post(`${API}/reviews/`, review, getTokens());
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  // async function deleteReview(reviewId, productId) {
+  //   try {
+  //     await axios.delete(`${API}/reviews/${reviewId}/`, getTokens());
+  //     getOneProduct(productId);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  // async function saveEditedReview(editedReview, reviewId) {
+  //   try {
+  //     await axios.patch(
+  //       `${API}/reviews/${reviewId}/`,
+  //       editedReview,
+  //       getTokens()
+  //     );
+  //     getOneProduct(editedReview.product);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  const values = {
+    getProducts,
+    product: state.product,
+    pages: state.pages,
+    categories: state.categories,
+    createCategory,
+    getCategories,
+    createProduct,
+    deleteComics,
+
+    getOneProduct,
+    oneProduct: state.oneProduct,
+    updateProduct,
+
+    // toggleFavorites,
+    // getFavorites,
+    // favorites: state.favorites,
+    // deleteFromFavorites,
+
+    // addReview,
+    // deleteReview,
+    // saveEditedReview,
+  };
+  return (
+    <productContext.Provider value={values}>{children}</productContext.Provider>
+  );
+};
+
+export default ProductContextProvider;

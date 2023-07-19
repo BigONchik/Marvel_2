@@ -46,7 +46,10 @@
     font-size: 15px;
     margin-top: 7rem;
   }
-  
+  .navbar__log-out p:hover {
+    color: #e72b30;
+    cursor: pointer;
+  }
   .navbar__log-out button {
     text-align: left;
   }

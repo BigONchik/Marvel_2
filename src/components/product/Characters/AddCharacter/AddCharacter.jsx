@@ -12,7 +12,22 @@ const AddCharacter = () => {
     description: "",
   });
 
+  const [image1, setImage1] = useState("");
+  const [image2, setImage2] = useState("");
+  const [name, setName] = useState("");
+  const [otherName, setOtherName] = useState("");
+  const [description, setDescription] = useState("");
+
   const { addCharacter } = useCharacters();
+
+  const handleSave = () => {
+    const newCharacter = new FormData();
+    newCharacter.append("image1", image1);
+    newCharacter.append("image2", image2);
+    newCharacter.append("name", name);
+    newCharacter.append("otherName", otherName);
+    newCharacter.append("description", description);
+  };
 
   const scanInp = () => {
     if (
@@ -41,42 +56,65 @@ const AddCharacter = () => {
         <input
           name="image1"
           value={character.image1}
-          onChange={handleInp}
+          onChange={(e) => {
+            setImage1(e.target.value);
+            handleInp(e);
+          }}
           type="text"
           placeholder="Image one"
         />
         <input
           name="image2"
           value={character.image2}
-          onChange={handleInp}
+          onChange={(e) => {
+            setImage2(e.target.value);
+            handleInp(e);
+          }}
           type="text"
           placeholder="Image two"
         />
         <input
           name="name"
           value={character.name}
-          onChange={handleInp}
+          onChange={(e) => {
+            setName(e.target.value);
+            handleInp(e);
+          }}
           type="text"
           placeholder="Name"
         />
         <input
           name="otherName"
           value={character.otherName}
-          onChange={handleInp}
+          onChange={(e) => {
+            setOtherName(e.target.value);
+            handleInp(e);
+          }}
           type="text"
           placeholder="Other Name"
         />
         <input
           name="description"
           value={character.description}
-          onChange={handleInp}
+          onChange={(e) => {
+            setDescription(e.target.value);
+            handleInp(e);
+          }}
           type="text"
           placeholder="Description"
         />
+
         <CategorySelect character={character} setCharacter={setCharacter} />
       </div>
 
-      <button onClick={scanInp}>ADD</button>
+      <button
+        onClick={() => {
+          scanInp();
+          handleSave();
+        }}
+      >
+        ADD
+      </button>
     </div>
   );
 };

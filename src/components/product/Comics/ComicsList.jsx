@@ -1,75 +1,77 @@
-// import React, { useEffect, useState } from "react";
-// import { Container, Pagination } from "react-bootstrap";
-// import { useSearchParams } from "react-router-dom";
-// import { useProduct } from "../../../contexts/ProductContextProvider";
+import React, { useEffect, useState } from "react";
+import { Button, Container, Pagination } from "react-bootstrap";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
-// import ProductCard from "../ProductCard/ProductCard";
-// import ComicsPage from "../../../pages/ComicsPage";
+import ProductCard from "../ComicsCard/ComicsCard";
+import ComicsPage from "../../../pages/ComicsPage";
+import { useProduct } from "../../../contexts/ProductContextProvider";
 
-// const ComicsList = () => {
-//   const { getProducts, products, pages } = useProduct();
-//   const [currentPage, setCurrentPage] = useState(1);
-//   const [searchParams, setSearchParams] = useSearchParams();
+const ComicsList = () => {
+  const { getProducts, product, pages } = useProduct();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-//   useEffect(() => {
-//     setSearchParams({
-//       page: currentPage,
-//     });
-//   }, [currentPage]);
+  const navigate = useNavigate();
 
-//   function getPagesArr() {
-//     const pagesArr = [];
-//     for (let i = 1; i <= pages; i++) {
-//       pagesArr.push(i);
-//     }
-//     return pagesArr;
-//   }
+  useEffect(() => {
+    setSearchParams({
+      page: currentPage,
+    });
+  }, [currentPage]);
 
-//   useEffect(() => {
-//     getProducts();
-//   }, [searchParams]);
+  function getPagesArr() {
+    const pagesArr = [];
+    for (let i = 1; i <= pages; i++) {
+      pagesArr.push(i);
+    }
+    return pagesArr;
+  }
 
-//   const handlePrev = () => {
-//     if (currentPage == 1) return;
-//     setCurrentPage(currentPage - 1);
-//   };
+  useEffect(() => {
+    getProducts();
+  }, [searchParams]);
 
-//   const handleNext = () => {
-//     if (currentPage == pages) return;
-//     setCurrentPage(currentPage + 1);
-//   };
+  const handlePrev = () => {
+    if (currentPage === 1) return;
+    setCurrentPage(currentPage - 1);
+  };
 
-//   return (
-//     <>
-//       <ComicsPage />
-//       <Container className="d-flex flex-wrap justify-content-between">
-//         {products.map((item) => (
-//           <ProductCard key={item.id} item={item} />
-//         ))}
-//         <ComicsPage />
-//         <Container>
-//           <Pagination>
-//             <Pagination.Prev onClick={handlePrev} />
-//             {getPagesArr().map((item) =>
-//               currentPage === item ? (
-//                 <Pagination.Item active key={item}>
-//                   {item}
-//                 </Pagination.Item>
-//               ) : (
-//                 <Pagination.Item
-//                   key={item}
-//                   onClick={() => setCurrentPage(item)}
-//                 >
-//                   {item}
-//                 </Pagination.Item>
-//               )
-//             )}
-//             <Pagination.Next onClick={handleNext} />
-//           </Pagination>
-//         </Container>
-//       </Container>
-//     </>
-//   );
-// };
+  const handleNext = () => {
+    if (currentPage === pages) return;
+    setCurrentPage(currentPage + 1);
+  };
 
-// export default ComicsList;
+  return (
+    <>
+      <ComicsPage />
+      <Button onClick={() => navigate("/add")}>ADD COMICS</Button>
+      <Container className="d-flex flex-wrap justify-content-between">
+        {product &&
+          product.map((item) => <ProductCard key={item.id} item={item} />)}
+        <ComicsPage />
+        <Container>
+          <Pagination>
+            <Pagination.Prev onClick={handlePrev} />
+            {getPagesArr().map((item) =>
+              currentPage === item ? (
+                <Pagination.Item active key={item}>
+                  {item}
+                </Pagination.Item>
+              ) : (
+                <Pagination.Item
+                  key={item}
+                  onClick={() => setCurrentPage(item)}
+                >
+                  {item}
+                </Pagination.Item>
+              )
+            )}
+            <Pagination.Next onClick={handleNext} />
+          </Pagination>
+        </Container>
+      </Container>
+    </>
+  );
+};
+
+export default ComicsList;
