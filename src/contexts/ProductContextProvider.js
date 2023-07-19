@@ -108,7 +108,7 @@ const ProductContextProvider = ({ children }) => {
 
   async function createProduct(newProduct) {
     try {
-      await axios.post(`${API}/cha/create/`, newProduct, getTokens());
+      await axios.post(`${API}/comics/create/`, newProduct, getTokens());
       navigate("/comics");
     } catch (error) {
       console.log(error);
@@ -118,7 +118,7 @@ const ProductContextProvider = ({ children }) => {
 
   async function createCharacters(newCharacters) {
     try {
-      await axios.post(`${API}/cha/create/`, newCharacters, getTokens());
+      await axios.post(`${API}/characters/create/`, newCharacters, getTokens());
       navigate("/comics");
     } catch (error) {
       console.log(error);
@@ -126,7 +126,7 @@ const ProductContextProvider = ({ children }) => {
     console.log(newCharacters.data);
   }
 
-  async function deleteComics(id) {
+  async function deleteProduct(id) {
     try {
       await axios.delete(`${API}/comics/delete/${id}/`, getTokens());
       getProducts();
@@ -162,11 +162,11 @@ const ProductContextProvider = ({ children }) => {
     }
   }
 
-  async function updateProduct(id, editedComics) {
+  async function updateProduct(id, editedProduct) {
     try {
       await axios.patch(
         `${API}/comics/update/${id}/`,
-        editedComics,
+        editedProduct,
         getTokens()
       );
       navigate("/comics");
@@ -256,7 +256,7 @@ const ProductContextProvider = ({ children }) => {
     getCategories,
     createProduct,
     createCharacters,
-    deleteComics,
+    deleteProduct,
     deleteCharacters,
 
     getOneProduct,

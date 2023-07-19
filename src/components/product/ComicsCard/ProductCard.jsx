@@ -17,35 +17,10 @@ function ComicsCard({ item }) {
         >
           {item.name}
         </Card.Title>
-        <Card.Text>{item.price} $</Card.Text>
-        {location.pathname === "/comics/" ? (
-          <Button
-            variant={item.favorite_by_user ? "success" : "secondary"}
-            onClick={() => toggleFavorites(item.id)}
-          >
-            {item.favorite_by_user
-              ? "Already in Favorites"
-              : " Add to Favorites"}
-          </Button>
-        ) : (
-          <Button variant="danger" onClick={() => deleteFromFavorites(item.id)}>
-            remove from favorites
-          </Button>
-        )}
-
-        {item.is_author ? (
-          <>
-            <Button variant="primary" onClick={() => deleteComics(item.id)}>
-              Delete
-            </Button>
-            <Button
-              variant="primary"
-              onClick={() => navigate(`/edit/${item.id}`)}
-            >
-              Edit
-            </Button>
-          </>
-        ) : null}
+        <Card.Text>{item.price} $</Card.Text>\
+        <Button variant="primary" onClick={() => deleteComics(item.id)}>
+          Delete
+        </Button>
       </Card.Body>
     </Card>
   );
