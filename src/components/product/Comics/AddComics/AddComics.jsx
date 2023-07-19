@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useCharacters } from "../../../../contexts/CharactersContextProvider";
-import "./AddCharacter.css";
+import "./AddComics.css";
 import CategorySelect from "../../CategorySelect/CategorySelect";
 import { useNavigate } from "react-router-dom";
 
-const AddCharacter = () => {
+const AddComics= () => {
   const navigate = useNavigate()
   const [character, setCharacter] = useState({
     image1: "",
@@ -122,4 +122,4 @@ const AddCharacter = () => {
   );
 };
 
-export default AddCharacter;
+export default AddComics;

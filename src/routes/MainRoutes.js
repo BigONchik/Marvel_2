@@ -20,11 +20,11 @@ import AddCharacter from "../components/product/Characters/AddCharacter/AddChara
 import EditCharacter from "../components/product/Characters/EditCharacter/EditCharacter";
 import Cart from "../components/Cart/Cart";
   import PersonalPage from "../pages/PersonalPage/PersonalPage";
-import AddComics from "../components/product/AddProduct/AddComics";
 import ComicsDetails from "../components/product/ProductDetails/ComicsDetails";
 import EditComics from "../components/product/EditComics/EditComics";
-import ComicsList from "../components/product/Comics/ComicsList";
 import NewsPage from "../pages/NewsPage/NewsPage";
+import AddComics from "../components/product/Comics/AddComics/AddComics";
+import ComicsList from "../components/product/Comics/ComicsList/ComicsList";
 
 const MainRoutes = () => {
   return (
@@ -47,7 +47,7 @@ const MainRoutes = () => {
 
 
       <Route path="/add" element={<AddComics />} />
-      <Route path="/comics" element={<ComicsList />} />
+      <Route path="/comics" element={<ComicsList/>} />
       <Route path="/comics/detail/:id" element={<ComicsDetails />} />
 
       <Route path="/characters" element={<CharactersList />} />
