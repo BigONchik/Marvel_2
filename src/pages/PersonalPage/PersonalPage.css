@@ -52,7 +52,7 @@
 
 .personalPage__buttons .personal__buttonsForAdmin {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 .personalPage__buttons .personal__buttonsForAdmin > button {
   margin-bottom: 2rem;

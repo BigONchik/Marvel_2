@@ -11,7 +11,6 @@ import ProductDetails from "../components/product/ProductDetails/ComicsDetails";
 
 import HomePage from "../pages/HomePage/HomePage";
 import MoviesList from "../components/product/MoviesList/MoviesList";
-import News from "../components/product/News/News";
 import ProductList from "../components/product/ProductList/ProductList";
 import CharactersPage from "../pages/CharactersPage/CharactersPage";
 import CharacterDetails from "../components/product/Characters/CharacterDetails/CharacterDetails";
@@ -61,9 +60,7 @@ const MainRoutes = () => {
       <Route path="/profile" element={<Cart />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/news" element={<NewsPage />} />
-
-      <Route path="/comics_page" element={<ComicsPage />} />
-      <Route path="/add_comics" element={<AddComics />} />
+      <Route path="/comics_details" element={<ComicsDetails />} />
 
       <Route path="*" element={<h1>PAGE NOT FOUND</h1>} />
     </Routes>

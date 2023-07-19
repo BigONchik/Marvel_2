@@ -11,7 +11,7 @@ const NewsPage = () => {
           <div className='movieNews-container'>
           <p>Latest Movies news</p>
           <div className='movieNews'>
-            <a href="/">
+            <a href="https://www.marvel.com/articles/movies/guardians-of-the-galaxy-vol-3-disney-august-2">
                 <img src="https://cdn.marvel.com/content/1x/guardians_15.png" alt="" />
             </a>
             <p>Movies</p>
@@ -22,7 +22,7 @@ const NewsPage = () => {
           <div className='comicsNews-container'>
           <p>Latest Comics news</p>
           <div className='comicsNews'>
-            <a href="/">
+            <a href="https://www.marvel.com/articles/comics/avengers-unlimited-infinity-comic-wonder-man-black-widow-new-story-arc-preview">
                 <img src="https://cdn.marvel.com/content/1x/avengers_unlimited_card_image_4.jpg" alt="" />
             </a>
             <p>Movies</p>

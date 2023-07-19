@@ -9,6 +9,7 @@
 .NewsPage__main> img{
     position:absolute;
     z-index: 0;
+    width: 100%;
 }
 .NewsPage__main> p{
     position: absolute;

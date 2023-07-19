@@ -11,14 +11,18 @@ export const useCharacters = () => useContext(charactersContext);
 
 const INIT_STATE = {
   characters:[],
-  characterDetails:null
+  characterDetails:null,
+  pages: 0,
+
 }
 function reducer (state = INIT_STATE, action) {
   switch (action.type) {
     case ACTIONS.GET__CHARACTERS:
         return{
             ...state,
-            characters: action.payload
+            characters: action.payload,
+        pages: Math.ceil(action.payload.count / 6),
+
         }
         case ACTIONS.GET__CHARACTER_DETAILS:
           return{
@@ -72,6 +76,8 @@ const CharactersContextProvider = ({children}) => {
     saveUpdatedCharacters,
     getCharacterDetails,
     characterDetails:state.characterDetails,
+    pages: state.pages,
+
 
     }
   return (
