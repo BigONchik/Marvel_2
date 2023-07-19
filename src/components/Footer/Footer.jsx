@@ -14,12 +14,14 @@ import pinteresIcon from "../../assets/pinterest-icon.png";
 import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <div className="Footer-container">
       <div className="footer">
+
+        <div className="footer__parts1-2 d-flex">
         <div className="footer__img-div">
-          <img src={Msign} alt="" srcset="" onClick={()=>navigate("/")}/>
+          <img src={Msign} alt="" onClick={() => navigate("/")} />
         </div>
         <div className="footer__part1">
           <a href="https://www.marvel.com/corporate/about">About Marvel</a>
@@ -40,15 +42,16 @@ const Footer = () => {
             Redeem Digital comics
           </a>
         </div>
-
+        </div>
+        <div className="footer__marvelProducts">
         <div className="footer__part3">
           <a href="https://www.marvel.com/insider?cid=Dcom_navigation_20200929_insider_footer">
             {" "}
-            <img src={marvelInsiderLogo} alt="" srcset="" />
+            <img src={marvelInsiderLogo} alt="" />
           </a>
 
           <a href="https://www.marvel.com/unlimited?cid=dcom_navigation_20220712_unlimited_footer">
-            <img src={marvelUnlimited} alt="" srcset="" />
+            <img src={marvelUnlimited} alt="" />
           </a>
         </div>
 
@@ -69,35 +72,36 @@ const Footer = () => {
             <p>Access Over 30,000+ Digital Comics</p>
           </a>
         </div>
-
+        </div>
         <div className="footer__part5">
           <p>Follow Marvel</p>
           <span>
             <a href="https://www.facebook.com/Marvel/">
               {" "}
-              <img src={facebookIcon} alt="" srcset="" />
+              <img src={facebookIcon} alt="" />
             </a>
             <a href="https://twitter.com/marvel">
-              <img src={twitterIcon} alt="" srcset="" />
+              <img src={twitterIcon} alt="" />
             </a>
 
             <a href="https://www.instagram.com/marvel/">
-              <img src={instagramIcon} alt="" srcset="" />
+              <img src={instagramIcon} alt="" />
             </a>
 
             <a href="https://marvelentertainment.tumblr.com/">
-              <img src={tumblrIcon} alt="" srcset="" />
+              <img src={tumblrIcon} alt="" />
             </a>
 
             <a href="https://www.youtube.com/marvel">
-              <img src={youtubeIcon} alt="" srcset="" />
+              <img src={youtubeIcon} alt="" />
             </a>
 
-            <a href="https://www.snapchat.com/add/marvelhq"><img src={snapchatIcon} alt="" srcset="" /></a>
-            
+            <a href="https://www.snapchat.com/add/marvelhq">
+              <img src={snapchatIcon} alt="" />
+            </a>
 
             <a href="https://www.pinterest.com/marvelofficial/">
-              <img src={pinteresIcon} alt="" srcset="" />
+              <img src={pinteresIcon} alt="" />
             </a>
           </span>
         </div>

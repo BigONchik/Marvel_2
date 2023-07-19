@@ -3,8 +3,9 @@ import { Button, Container, Pagination } from "react-bootstrap";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 import ProductCard from "../ComicsCard/ProductCard";
-import ComicsPage from "../../../pages/ComicsPage";
+// import ComicsPage from "../../../pages/ComicsPage";
 import { useProduct } from "../../../contexts/ProductContextProvider";
+import ComicsPage from "../../../pages/ComicsPage/ComicsPage";
 
 const ComicsList = () => {
   const { getProducts, product, pages } = useProduct();

@@ -1,0 +1,174 @@
+.NewsPage{
+    width: 100%;
+    height:auto;
+    margin-bottom: 10rem;
+}
+.NewsPage__main{
+    position: relative;
+}
+.NewsPage__main> img{
+    position:absolute;
+    z-index: 0;
+}
+.NewsPage__main> p{
+    position: absolute;
+    z-index: 1;
+    color: white;
+    font-size: 50px;
+    font-weight: 600;
+    margin-top: 18rem;
+    margin-left: 36rem;
+    text-transform: uppercase;
+}
+.movieNews-container{
+    padding-top: 45rem;
+}
+.movieNews-container  >p {
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative;
+    line-height: 1;
+    color: black;
+    font-size: 30px;
+    margin-left:10rem;
+  }
+  
+  .movieNews-container >p::before {
+    left: 59px;
+    top: -8px;
+    transform-origin: left bottom;
+    background-color: #c6a972;
+    content: "";
+    display: block;
+    height: 3px;
+    position: absolute;
+    transform: rotate(-45deg) skewX(45deg);
+    width: 25px;
+  }
+  
+  .movieNews-container >p::after {
+    left: -5px;
+    top: calc(100% + 3px);
+    transform-origin: right top;
+    background-color: #c6a972;
+    content: "";
+    display: block;
+    height: 3px;
+    position: absolute;
+    transform: rotate(-45deg) skewX(45deg);
+    width: 25px;
+  }
+
+  .movieNews{
+    margin-top: 3rem;
+    margin-left: 11rem;
+    display: flex;
+    flex-direction: row;
+  }
+  .movieNews img{
+    width: 80%;
+    height: auto;
+  }
+
+  .movieNews p:first-of-type{
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative;
+    line-height: 1;
+    color: gray;
+    font-size: 20px;
+    margin-top:7rem ;
+    margin-left:-5rem;
+  }
+  
+  .movieNews p:nth-child(3){
+    text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+    line-height: 1;
+    color: #151515;
+    font-size: 25px;
+    margin-top:10rem ;
+    width: 30rem;
+    margin-left: -4.5rem;
+  }
+  .movieNews p:nth-child(3):hover{
+    color: #e72b30;
+    cursor: pointer;
+  }
+
+
+  .comicsNews-container  >p {
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative;
+    line-height: 1;
+    color: black;
+    font-size: 30px;
+    margin-top:10rem ;
+    margin-left:10rem;
+  }
+  
+  .comicsNews-container >p::before {
+    left: 59px;
+    top: -8px;
+    transform-origin: left bottom;
+    background-color: #c6a972;
+    content: "";
+    display: block;
+    height: 3px;
+    position: absolute;
+    transform: rotate(-45deg) skewX(45deg);
+    width: 25px;
+  }
+  
+  .comicsNews-container >p::after {
+    left: -5px;
+    top: calc(100% + 3px);
+    transform-origin: right top;
+    background-color: #c6a972;
+    content: "";
+    display: block;
+    height: 3px;
+    position: absolute;
+    transform: rotate(-45deg) skewX(45deg);
+    width: 25px;
+  }
+
+  .comicsNews{
+    margin-top: 3rem;
+    margin-left: 11rem;
+    display: flex;
+    flex-direction: row;
+  }
+  .comicsNews img{
+    width: 80%;
+    height: auto;
+  }
+
+  .comicsNews p:first-of-type{
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative;
+    line-height: 1;
+    color: gray;
+    font-size: 20px;
+    margin-top:7rem ;
+    margin-left:-5rem;
+  }
+  
+  .comicsNews p:nth-child(3){
+    text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+    line-height: 1;
+    color: #151515;
+    font-size: 25px;
+    margin-top:10rem ;
+    width: 30rem;
+    margin-left: -4.5rem;
+  }
+  .comicsNews p:nth-child(3):hover{
+    color: #e72b30;
+    cursor: pointer;
+  }

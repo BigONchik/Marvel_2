@@ -2,7 +2,7 @@ import React from "react";
 import "./HomePage.css";
 import Carousel, { slideImages } from "../../components/Carousel/Carousel";
 
-import nickFury from "../../assets/nick fury hp1.jpg";
+import nickFury from "../../assets/nick fury.jpg";
 import secretInvTitle from "../../assets/secret_invasion_title.png";
 import secretInvRelated1 from "../../assets/secret_invasion_1.jpg";
 import secretInvRelated2 from "../../assets/secret-invasion_2.webp";
@@ -13,8 +13,10 @@ import marvelComics from "../../assets/marvelComics.jpeg";
 import marvelUnlim from "../../assets/marvel imgUnlimited.png";
 
 import marvelInsider from "../../assets/marvel insider.jpg";
+import { useMediaQuery } from "@mui/material";
 
 const HomePage = () => {
+  const maxWidth768 = useMediaQuery("(max-width:768px)");
   return (
     <div className="homepage">
       <Carousel images={slideImages} />
@@ -46,7 +48,7 @@ const HomePage = () => {
               'Secret Invasion': Samuel L. Jackson on Nick Fury's Skrullmance
             </a>
           </span>
-          <span className="hp__sI_rel">
+          <span className="hp__sI_rel hp__sI_rel2">
             <a href="https://www.marvel.com/articles/tv-shows/secret-invasion-don-cheadle-kevin-feige-rhodey-skrull">
               <img src={secretInvRelated2} alt="" srcset="" />
             </a>
@@ -56,7 +58,7 @@ const HomePage = () => {
             </a>
           </span>
 
-          <span className="hp__sI_rel">
+          <span className="hp__sI_rel hp__sI_rel3">
             <a href="https://www.marvel.com/articles/tv-shows/secret-invasion-samuel-jackson-nick-fury-disney-plus">
               <img src={secretInvRelated3} alt="" srcset="" />
             </a>
@@ -66,16 +68,18 @@ const HomePage = () => {
               Out of the Shadows
             </a>
           </span>
-          <span className="hp__sI_rel">
-            <a href="https://www.marvel.com/articles/tv-shows/secret-invasion-cobie-smulders-maria-hill">
-              <img src={secretInvRelated4} alt="" srcset="" />
-            </a>
-            <p>TV SHOWS</p>
-            <a href="https://www.marvel.com/articles/tv-shows/secret-invasion-cobie-smulders-maria-hill">
-              'Secret Invasion': Cobie Smulders Reflects on Maria Hill's MCU
-              Journey
-            </a>
-          </span>
+          {!maxWidth768 ? (
+            <span className="hp__sI_rel hp__sI_rel4">
+              <a href="https://www.marvel.com/articles/tv-shows/secret-invasion-cobie-smulders-maria-hill">
+                <img src={secretInvRelated4} alt="" srcset="" />
+              </a>
+              <p>TV SHOWS</p>
+              <a href="https://www.marvel.com/articles/tv-shows/secret-invasion-cobie-smulders-maria-hill">
+                'Secret Invasion': Cobie Smulders Reflects on Maria Hill's MCU
+                Journey
+              </a>
+            </span>
+          ) : null}
         </span>
       </div>
 
@@ -100,32 +104,36 @@ const HomePage = () => {
           <span className="hp__comics_rel hp__comics_rel1">
             <img src={secretInvRelated1} alt="" srcset="" />
             <p>TV SHOWS</p>
-            <p>
+            <a href="https://www.marvel.com/unlimited?cid=dcom_promomodule_20210909_unlimited_home">
               'Secret Invasion': Samuel L. Jackson on Nick Fury's Skrullmance
-            </p>
+            </a>
           </span>
-          <span className="hp__comics_rel">
+          <span className="hp__comics_rel hp__comics_rel2">
             <img src={secretInvRelated2} alt="" srcset="" />
             <p>TV SHOWS</p>
-            <p>'Secret Invasion': Explore New Posters from the Series</p>
+            <a href="https://www.marvel.com/unlimited?cid=dcom_promomodule_20210909_unlimited_home">
+              'Secret Invasion': Explore New Posters from the Series
+            </a>
           </span>
 
-          <span className="hp__comics_rel">
+          <span className="hp__comics_rel hp__comics_rel3">
             <img src={secretInvRelated3} alt="" srcset="" />
             <p>TV SHOWS</p>
-            <p>
+            <a href="https://www.marvel.com/unlimited?cid=dcom_promomodule_20210909_unlimited_home">
               'Secret Invasion': Samuel L. Jackson Talks Nick Fury's Stepping
               Out of the Shadows
-            </p>
+            </a>
           </span>
-          <span className="hp__comics_rel">
-            <img src={secretInvRelated4} alt="" srcset="" />
-            <p>TV SHOWS</p>
-            <p>
-              'Secret Invasion': Cobie Smulders Reflects on Maria Hill's MCU
-              Journey
-            </p>
-          </span>
+          {!maxWidth768 ? (
+            <span className="hp__comics_rel hp__comics_rel4">
+              <img src={secretInvRelated4} alt="" srcset="" />
+              <p>TV SHOWS</p>
+              <a href="https://www.marvel.com/unlimited?cid=dcom_promomodule_20210909_unlimited_home">
+                'Secret Invasion': Cobie Smulders Reflects on Maria Hill's MCU
+                Journey
+              </a>
+            </span>
+          ) : null}
         </span>
       </div>
 

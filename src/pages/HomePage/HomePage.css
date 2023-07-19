@@ -8,6 +8,7 @@
 }
 .hp__secretInvasion {
   display: flex;
+  flex-direction: row;
   margin-top: 2rem;
   position: relative;
   margin-bottom: 10rem;
@@ -20,16 +21,14 @@
   position: absolute;
   z-index: 1;
   background-color: #151515;
-  clip-path: polygon(0 0, 44% 0, 56% 95%, 0% 100%);
+  clip-path: polygon(0 0, 44% 0, 56% 98%, 0% 100%);
 }
 .nickFury_img,
 .marvelComics_img {
-  width: 57.1%;
+  width: 65%;
   height: 40rem;
-  margin-left: 45.2rem;
-  position: absolute;
-  z-index: 0;
-  clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 99.8%);
+  margin-left: 39.8rem;
+  clip-path: polygon(0 0, 100% 0, 100% 99%, 0% 100%);
 }
 
 .hp__secretInvasion_inner,
@@ -57,7 +56,7 @@
   color: white;
   font-size: 22px;
   margin-top: 1.5rem;
-  width: 38rem;
+  width: 37rem;
 }
 .hp__comics_inner p:nth-child(2) {
   text-transform: uppercase;
@@ -129,47 +128,51 @@
 .hp__secretInvasion_inner button:active,
 .hp__comics_inner button:active {
   clip-path: polygon(0% 0, 100% 0, 100% 100%, 100% 100%, 0% 100%, 0% 100%);
-  border: 1px solid #e72b30;
+  border: 1px solid #c6a972;
 }
 
 .hp__secretInvasion_related,
 .hp__comics_related {
-  width: 85%;
+  width: 87%;
   text-align: center;
   height: 20rem;
-  margin-top: 35.6rem;
-  margin-left: 8rem;
+  margin-top: -14rem;
+  margin-left: 6rem;
   background-color: white;
   position: relative;
   z-index: 1;
-
 }
 .hp__comics_related {
-  margin-top: 41rem;
+  margin-top: -7rem;
 }
-.hp__secretInvasion_related span:first-child,
-.hp__comics_related span:first-child {
+.hp__secretInvasion_related span,
+.hp__comics_related span {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  margin-left: 0.7rem;
 }
 
 .hp__secretInvasion_related img,
 .hp__comics_related img {
   margin-top: 2rem;
-  width: 20rem;
-  height: 12rem;
+  width: 18rem;
+  height: 10rem;
+}
+.hp__comics_rel2,
+.hp__sI_rel2 {
+  margin-top: -1.8rem;
 }
 .hp__secretInvasion_related span p:first-child,
 .hp__comics_related span p:first-child {
   color: #151515;
 }
 
-
 .hp__sI_rel,
 .hp__comics_rel {
   display: flex;
   flex-direction: column;
   text-align: left;
+  width: 70%;
 }
 .hp__sI_rel1,
 .hp__comics_rel1 {
@@ -187,11 +190,8 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-
-
 .hp__sI_rel a,
-.hp__comics_rel p:nth-child(3) {
-  width: 20rem;
+.hp__comics_rel a {
   color: black;
   font-size: 19px;
   font-weight: 600;
@@ -199,7 +199,7 @@
 }
 
 .hp__sI_rel a:hover,
-.hp__comics_rel p:nth-child(3):hover {
+.hp__comics_rel a:hover {
   color: #e72b30;
 }
 
@@ -214,7 +214,7 @@
   display: flex;
   cursor: pointer;
 }
-.hp__marvelInsider a{
+.hp__marvelInsider a {
   text-decoration: none;
 }
 .hp__marvelInsider img {
@@ -269,8 +269,393 @@
 .hp__marvelInsider_right p:nth-child(5) {
   color: white;
   font-size: 16px;
- margin-top: 50px;
- margin-bottom: 0;
+  margin-top: 50px;
+  margin-bottom: 0;
   font-weight: normal;
 }
 
+@media (max-width: 1440px) {
+  .nickFury_img,
+  .marvelComics_img {
+    width: 65%;
+    height: 40rem;
+    margin-left: 38.8rem;
+  }
+
+  .hp__secretInvasion_inner img {
+    width: 27rem;
+  }
+  .hp__secretInvasion_inner p,
+  .hp__comics_inner p {
+    color: white;
+    font-size: 20px;
+    margin-top: 1.5rem;
+    width: 35rem;
+  }
+  .hp__comics_inner p:nth-child(3) {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 35px;
+    margin-top: 2.5rem;
+  }
+  .hp__comics_inner p:nth-child(4) {
+    font-size: 18px;
+    margin-top: 0.7rem;
+  }
+
+  .hp__secretInvasion_inner button,
+  .hp__comics_inner button {
+    width: 9.5rem;
+    font-size: 15px;
+  }
+  .hp__comics_inner button {
+    width: 15rem;
+    font-size: 15px;
+  }
+  .hp__secretInvasion_related,
+  .hp__comics_related {
+    width: 90%;
+    margin-left: 5rem;
+  }
+  .hp__secretInvasion_related {
+    margin-top: -16rem;
+  }
+  .hp__marvelInsider_right p:nth-child(3) {
+    margin-left: -3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* .hp__secretInvasion{
+    margin-top: 10rem;
+  } */
+  .nickFury_img,
+  .marvelComics_img {
+    width: 65%;
+    height: 40rem;
+    margin-left: 22.4rem;
+  }
+  .hp__newComics {
+    margin-top: 1rem;
+  }
+  .hp__secretInvasion_black,
+  .hp__comics_black {
+    width: 100%;
+  }
+  .hp__secretInvasion_inner img,
+  .hp__comics_inner {
+    width: 20rem;
+  }
+  .hp__secretInvasion_inner p,
+  .hp__comics_inner p {
+    color: white;
+    font-size: 20px;
+    margin-top: 1.5rem;
+    width: 20rem;
+  }
+  .hp__secretInvasion_inner,
+  .hp__comics_inner {
+    margin-left: 8rem;
+  }
+  .hp__comics_inner p:nth-child(3) {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 30px;
+    margin-top: 2.5rem;
+  }
+  .hp__comics_inner p:nth-child(4) {
+    font-size: 18px;
+    margin-top: 0.7rem;
+  }
+
+  .hp__secretInvasion_inner button,
+  .hp__comics_inner button {
+    width: 9.5rem;
+    font-size: 15px;
+  }
+  .hp__comics_inner button {
+    width: 15rem;
+    font-size: 15px;
+  }
+  .hp__secretInvasion_related,
+  .hp__comics_related {
+    width: 85%;
+    margin-left: 5rem;
+    margin-top: -15rem;
+  }
+  .hp__comics_related {
+    margin-top: -3rem;
+  }
+  .hp__secretInvasion_related span,
+  .hp__comics_related span {
+    margin-left: 0rem;
+    width: 15rem;
+    margin-top: 0rem;
+  }
+  .hp__secretInvasion_related span .hp__sI_rel1,
+  .hp__comics_related span .hp__comics_rel1 {
+    margin-left: 41.4rem;
+  }
+  .hp__comics_related span .hp__comics_rel1 {
+    margin-left: 45.5rem;
+  }
+  .hp__secretInvasion_related span .hp__sI_rel,
+  .hp__comics_related span .hp__sI_rel {
+    width: 11rem;
+    margin-top: -0.5rem;
+  }
+
+  .hp__comics_inner p:nth-child(2)::before {
+    width: 25px;
+  }
+  .hp__comics_inner p:nth-child(2)::after {
+    left: -1px;
+    width: 25px;
+  }
+  .hp__secretInvasion_related img,
+  .hp__comics_related img {
+    margin-top: 2rem;
+    width: 9rem;
+    height: 5rem;
+  }
+  .hp__sI_rel p:nth-child(2),
+  .hp__comics_rel p:nth-child(2) {
+    width: 10rem;
+    color: gray;
+    font-size: 13px;
+  }
+
+  .hp__sI_rel1 {
+    margin-right: 3rem;
+  }
+  .hp__comics_rel1,
+  .hp__comics_related .hp__comics_rel2,
+  .hp__comics_related.hp__comics_rel3 {
+    margin-right: -1rem;
+  }
+  .hp__comics_related .hp__comics_rel4 {
+    margin-left: -4rem;
+    width: 15rem;
+  }
+  .hp__comics_rel2 img,
+  .hp__sI_rel2 img {
+    margin-top: 0.7rem;
+  }
+  .hp__comics_rel2,
+  .hp__sI_rel2 {
+    margin-right: 3rem;
+    margin-bottom: 2.1rem;
+  }
+  .hp__comics_rel3,
+  .hp__sI_rel3 {
+    margin-right: 3rem;
+    margin-bottom: 2.5rem;
+  }
+  .hp__comics_rel4,
+  .hp__sI_rel4 {
+    margin-bottom: 2.5rem;
+  }
+
+  .hp__sI_rel a,
+  .hp__comics_rel a {
+    font-size: 13px;
+    width: 140px;
+  }
+  .hp__marvelInsider {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin-top: 2rem;
+  }
+  .hp__marvelInsider img {
+    margin-top: 2rem;
+    margin-left: 0rem;
+    width: 100%;
+  }
+  .hp__marvelInsider_right {
+    margin-left: 12rem;
+    width: 40rem;
+    margin-top: 3rem;
+  }
+
+  .hp__marvelInsider_right p:first-child {
+    font-size: 40px;
+  }
+  .hp__marvelInsider_right p:nth-child(2) {
+    font-size: 42px;
+  }
+  .hp__marvelInsider_right p:nth-child(3) {
+    font-size: 27px;
+  }
+  .hp__marvelInsider_right p:nth-child(5) {
+    font-size: 17px;
+  }
+  .hp__marvelInsider_right button {
+    width: 11.5rem;
+    height: 57px;
+  }
+}
+
+@media (max-width: 769px) {
+  .hp__secretInvasion_black,
+  .hp__comics_black {
+    width: 100%;
+    z-index: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    height: 25rem;
+  }
+  .hp__comics_black {
+    height: 40rem;
+  }
+  .hp__secretInvasion_inner,
+  .hp__comics_inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .hp__secretInvasion_inner img,
+  .hp__comics_inner img {
+    margin-top: 3.5rem;
+  }
+  .hp__secretInvasion_inner button,
+  .hp__comics_inner button {
+    width: 12rem;
+    font-size: 16px;
+    margin-left: -1rem;
+  }
+  .hp__secretInvasion .nickFury_img,
+  .hp__newComics .marvelComics_img {
+    margin-top: 25rem;
+    width: 100%;
+    margin-left: 0;
+  }
+  .hp__newComics .marvelComics_img {
+    margin-top: 37rem;
+  }
+  .hp__secretInvasion_related,
+  .hp__comics_related {
+    display: flex;
+    flex-direction: column;
+  }
+  .hp__secretInvasion_related span .hp__sI_rel1 {
+    margin-left: 26rem;
+  }
+  .hp__comics_related span .hp__comics_rel1 {
+    margin-left: 26rem;
+  }
+  .hp__comics_related > span,
+  .hp__secretInvasion_related > span {
+    width: 15rem;
+  }
+  .hp__comics_related .hp__comics_rel3,
+  .hp__secretInvasion_related .hp__sI_rel3 {
+    width: 10rem;
+    margin-right: 0rem;
+  }
+  .hp__comics_related .hp__comics_rel3 p,
+  .hp__secretInvasion_related .hp__sI_rel3 p {
+    width: 5rem;
+  }
+  .hp__marvelInsider_right {
+    margin-left: 4rem;
+  }
+  .hp__marvelInsider_right p:nth-child(3) {
+    width: 25rem;
+    text-align: center;
+    margin-left: 0.5rem;
+    font-size: 20px;
+  }
+  .hp__marvelInsider_right p:first-child {
+    font-size: 35px;
+  }
+  .hp__marvelInsider_right p:nth-child(2) {
+    font-size: 35px;
+  }
+  .hp__marvelInsider_right button {
+    width: 10rem;
+    height: 55px;
+  }
+  .hp__comics_inner p:first-of-type {
+    margin-top: 3rem;
+    margin-left: 15rem;
+  }
+  .hp__comics_inner p:nth-of-type(2) {
+    margin-top: 3rem;
+    margin-left: 20rem;
+    width: 26rem;
+  }
+  .hp__comics_inner p:last-of-type {
+    margin-left: 24rem;
+    width: 30rem;
+    margin-bottom: 5rem;
+  }
+  .hp__comics_inner button {
+    width: 15rem;
+    font-size: 15px;
+    margin-left: 10rem;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 426px) {
+  .hp__secretInvasion_related,
+  .hp__comics_related {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .hp__secretInvasion_related span,
+  .hp__comics_related span {
+    flex-shrink: 0;
+  }
+  .hp__secretInvasion_related,
+  .hp__comics_related {
+    width: 81%;
+    margin-left: 2.5rem;
+  }
+  .hp__secretInvasion_related
+    p:nth-child(2)
+    .hp__comics_related
+    p:nth-child(2) {
+    width: 4rem;
+    margin-left: 2.5rem;
+  }
+  .hp__marvelInsider_right {
+    margin-left: -7rem;
+  }
+  .hp__marvelInsider_right p:nth-child(3) {
+    width: 20rem;
+    text-align: center;
+    margin-left: 0.5rem;
+    font-size: 18px;
+  }
+  .hp__marvelInsider_right p:first-child {
+    font-size: 30px;
+  }
+  .hp__marvelInsider_right p:nth-child(2) {
+    font-size: 26px;
+  }
+  .hp__marvelInsider_right button {
+    width: 8rem;
+    height: 55px;
+  }
+
+  .hp__comics_inner p:first-of-type {
+    margin-top: 3rem;
+    margin-left: 5rem;
+    width: 10rem;
+  }
+  .hp__comics_inner p:nth-of-type(2) {
+    margin-top: 3rem;
+    margin-left: 13rem;
+    width: 18rem;
+    font-size: 23px;
+  }
+  .hp__comics_inner p:last-of-type {
+    margin-left: 13rem;
+    width: 18rem;
+    margin-bottom: 3rem;
+  }
+}

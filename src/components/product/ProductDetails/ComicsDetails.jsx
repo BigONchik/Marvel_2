@@ -16,8 +16,8 @@ const ComicsDetails = () => {
   } = useProduct();
   const { currentUser } = useAuth();
 
-  const [text, setText] = useState("");
-  const [commentToEdit, setCommentToEdit] = useState(null);
+    const [text, setText] = useState("");
+    const [commentToEdit, setCommentToEdit] = useState(null);
 
   const { id } = useParams();
   useEffect(() => {
@@ -32,9 +32,9 @@ const ComicsDetails = () => {
     setText("");
   };
 
-  const handleChange = (e) => {
-    setCommentToEdit({ ...commentToEdit, text: e.target.value });
-  };
+    const handleChange = (e) => {
+      setCommentToEdit({ ...commentToEdit, text: e.target.value });
+    };
 
   const handleSave = () => {
     const editedReview = {

@@ -9,6 +9,5 @@ const ComicsPage = () => {
       <CarouselComics images={slideImages} />
     </div>
   );
-};
-
+      }
 export default ComicsPage;

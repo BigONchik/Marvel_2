@@ -1,0 +1,69 @@
+.admin {
+    display: flex;
+    flex-direction: column;
+    background-image: url(../../../assets/black\ panther\ 1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 900px;
+  }
+  
+  .admin__title {
+    margin: auto;
+    margin-bottom: 0%;
+    margin-top: 2%;
+    font-size: 40px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #e6e8dd;
+    -webkit-text-stroke: 2px black;
+  }
+  
+  .admin__block {
+    background-color: #adaea8;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: auto;
+    margin-top: 2%;
+    padding: 4% 1%;
+    border: 3px solid #3d3d3d;
+  }
+  
+  .admin__inputs {
+    width: 50%;
+    height: 40px;
+    margin: auto;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+    font-size: 18px;
+    padding: 1%;
+  }
+  
+  .admin__button {
+    height: 40px;
+    width: 80%;
+    border-radius: 10px;
+    font-size: 18px;
+    margin: auto;
+    border-color: #3d3d3d;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    background-color: #ed910f;
+  }
+  
+  .admin__button:hover {
+    cursor: pointer;
+    height: 45px;
+    width: 85%;
+    font-size: 20px;
+    background-color: #cda56e;
+  }
+  
+  .button__div {
+    width: 43%;
+    height: 60px;
+  
+    display: flex;
+    margin: auto;
+  }
+  

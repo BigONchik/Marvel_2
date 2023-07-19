@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("../../fonts/BebasNeue-Regular.ttf") format("truetype");
+}
+.ComicsPage {
+  width: 100%;
+  margin-bottom: 10rem;
+}
+.cp__main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+/* .cp__main img {
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+} */
+.cp__main img {
+  width: 100%;
+  height: auto;
+}
+
+.cp__main_texts {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.cp__main_texts p:first-child {
+  color: white;
+  font-weight: 400;
+  font-size: 60px;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 4px;
+}
+.cp__main_texts p:last-child {
+  color: white;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  width: 100%;
+}
+.cp__comicsList {
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+  padding-left: 11rem;
+}
+.cp__comicsList p:first-child {
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  line-height: 1;
+  color: black;
+  font-size: 30px;
+}
+
+.cp__comicsList p:first-child::before {
+  left: 59px;
+  top: -8px;
+  transform-origin: left bottom;
+  background-color: #c6a972;
+  content: "";
+  display: block;
+  height: 3px;
+  position: absolute;
+  transform: rotate(-45deg) skewX(45deg);
+  width: 25px;
+}
+
+.cp__comicsList p:first-child::after {
+  left: -5px;
+  top: calc(100% + 3px);
+  transform-origin: right top;
+  background-color: #c6a972;
+  content: "";
+  display: block;
+  height: 3px;
+  position: absolute;
+  transform: rotate(-45deg) skewX(45deg);
+  width: 25px;
+}
+
+@media (max-width: 1024px) {
+  .cp__main_texts p:first-child {
+    font-size: 55px;
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 1024px) {
+  .cp__main_texts p:last-child {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cp__main_texts {
+    margin-top: 0.3rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .cp__main_texts p:last-child {
+    font-size: 16px;
+    width: 30rem;
+  }
+}
+
+@media (max-width: 426px) {
+  .cp__main_texts {
+    text-align: center;
+  }
+}
+@media (max-width: 426px) {
+  .cp__main_texts p:first-child {
+    font-size: 25px;
+  }
+}
+@media (max-width: 426px) {
+  .cp__main_texts p:last-child {
+    font-size: 10px;
+    width: 20rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .cp__main_texts {
+    margin-top: 0.2rem;
+    text-align: center;
+  }
+}
+@media (max-width: 426px) {
+  .cp__main_texts p:first-child {
+    font-size: 20px;
+  }
+}
+@media (max-width: 426px) {
+  .cp__main_texts p:last-child {
+    font-size: 8px;
+    width: 15rem;
+  }
+}
+@media (max-width: 1024px) {
+  .cp__characterList p:first-child {
+    margin-bottom: 0rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cp__characterList p:first-child {
+    margin-bottom: 0rem;
+    font-size: 25px;
+  }
+}
+@media (max-width: 1024px) {
+  .cp__characterList {
+    padding-left: 6rem;
+  }
+}
+@media (max-width: 3768px) {
+  .cp__characterList {
+    padding-left: 2.8rem;
+  }
+}
+@media (max-width: 426px) {
+  .cp__characterList {
+    padding-left: 3rem;
+  }
+}
+@media (max-width: 376px) {
+  .cp__characterList {
+    padding-left: 2rem;
+  }
+}
+@media (max-width: 320px) {
+  .cp__characterList {
+    padding-left: 1rem;
+  }
+}
+
+@media (max-width: 426px) {
+  .cp__characterList p:first-child {
+    font-size: 20px;
+  }
+}

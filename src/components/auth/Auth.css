@@ -1,4 +1,77 @@
-.btn-danger{
-    background-color: #e72b30;
-    border: none;
+.Auth {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
+.Auth p {
+  margin-bottom: 2rem;
+  font-size: 30px;
+  font-weight: 600;
+  color: #151515;
+  /* text-transform: uppercase; */
+}
+.auth__inputs-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.auth__inputs-div input {
+  width: 500px;
+  height: 50px;
+  border: 1px solid #151515;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.auth__inputs-div input:last-child {
+  margin-bottom: 0rem;
+}
+.auth__inputs-div input:focus {
+  border: 2px solid #e72b30;
+  outline: none;
+}
+
+.auth__buttons-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.auth__buttons-div button {
+  width: 13rem;
+  height: 3rem;
+  border: none;
+  background-color: #e72b30;
+  outline: none;
+  clip-path: polygon(12% 0, 100% 0, 100% 70%, 88% 100%, 0% 100%, 0% 30%);
+  color: white;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+}
+.auth__buttons-div button:first-child {
+  width: 10rem;
+  height: 3rem;
+  margin-right: 3rem;
+}
+
+.reset-btn button  {
+    width: 20rem;
+    height: 4rem;
+    border: none;
+    background-color: #e72b30;
+    outline: none;
+    clip-path: polygon(8% 0, 100% 0, 100% 70%, 92% 100%, 0% 100%, 0% 30%);
+    color: white;
+    font-weight: 600;
+    font-size: 17px;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+  }
