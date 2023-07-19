@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { useProduct } from "../../../contexts/ProductContextProvider";
 
 const AddComics = () => {
-  const { categories, getCategories, createProduct } = useProduct();
+  const { categories, getCategories, createComics} = useProduct();
 
   const [name, setName] = useState("");
   const [author, setAuthor] = useState("");
@@ -28,14 +28,14 @@ const AddComics = () => {
     formData.append("amount_of_pages", amountOfPages);
     formData.append("category", category);
 
-    createProduct(formData);
+    createComics(formData);
   };
   console.log(image);
   console.log(categories);
 
   return (
     <div className="w-50 mt-5 m-auto">
-      <h2>CREATE PRODUCT</h2>
+      <h2>CREATE PRODUCT</h2> 
       <Form.Control
         onChange={(e) => setName(e.target.value)}
         placeholder="name"

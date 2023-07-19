@@ -1,0 +1,116 @@
+.character__card {
+    width: 13rem;
+    height: 25rem;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    clip-path: polygon(0% 0, 100% 0, 100% 96%, 93% 100%, 0% 100%, 0% 0%);
+    position: relative;
+  }
+  .image-container {
+    width: 100%;
+    height: 56%;
+    position: relative;
+    /* z-index: 1; */
+  }
+  .character__card img {
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
+  .character__card:hover img {
+    transform: scale(1.1);
+    transition: 0s ease;
+  }
+  
+  .character__card img::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background-color: red;
+    z-index: 0;
+  }
+  .character__card h3 {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 15px;
+    margin-left: 12px;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .character__card p {
+    color: rgb(177, 176, 176);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-left: 12px;
+    margin-top: 90px;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .character__card {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .character__card .image-container::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+    background-color: red;
+    transform: translateY(100%);
+    transition-property: transform, height;
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.5, 0, 0.75, 0.5);
+  }
+  
+  .character__card:hover .image-container::after {
+    height: 100%;
+    transition: height 0.2s ease-in-out;
+  }
+  .character__card:hover p {
+    color: white;
+  }
+  
+  @media (max-width: 768px) {
+    .character__card {
+      width: 12rem;
+      height: 24rem;
+    }
+  }
+  @media (max-width: 376px) {
+    .character__card {
+      width: 10rem;
+      height: 20rem;
+    }
+  }
+  @media (max-width: 320px) {
+    .character__card {
+      width: 9rem;
+      height: 20rem;
+    }
+  }
+  @media (max-width: 376px) {
+    .character__card p {
+      margin-top: 70px;
+    }
+  }
+  
+  @media (max-width: 376px) {
+    .character__card p {
+      margin-top: 80px;
+    }
+  }
+  

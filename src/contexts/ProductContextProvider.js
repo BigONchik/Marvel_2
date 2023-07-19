@@ -7,6 +7,7 @@ import { getTokens } from "../helpers/functions";
 export const productContext = createContext();
 export const useProduct = () => useContext(productContext);
 
+
 const INIT_STATE = {
   product: [],
   characters: [],
@@ -108,7 +109,7 @@ const ProductContextProvider = ({ children }) => {
 
   async function createProduct(newProduct) {
     try {
-      await axios.post(`${API}/cha/create/`, newProduct, getTokens());
+      await axios.post(`${API}/comics/create/`, newProduct, getTokens());
       navigate("/comics");
     } catch (error) {
       console.log(error);
@@ -116,9 +117,9 @@ const ProductContextProvider = ({ children }) => {
     console.log(newProduct.data);
   }
 
-  async function createCharacters(newCharacters) {
+  async function createComics(newCharacters) {
     try {
-      await axios.post(`${API}/cha/create/`, newCharacters, getTokens());
+      await axios.post(`${API}/comics/create/`, newCharacters, getTokens());
       navigate("/comics");
     } catch (error) {
       console.log(error);
@@ -137,7 +138,7 @@ const ProductContextProvider = ({ children }) => {
 
   async function deleteCharacters(id) {
     try {
-      await axios.delete(`${API}/characters/delete/${id}/`, getTokens());
+      await axios.delete(`${API}/comics/delete/${id}/`, getTokens());
       getCharacters();
     } catch (error) {
       console.log(error);
@@ -155,7 +156,7 @@ const ProductContextProvider = ({ children }) => {
 
   async function getOneCharacter(id) {
     try {
-      const res = await axios(`${API}/characters/detail/${id}/`, getTokens());
+      const res = await axios(`${API}/comics/detail/${id}/`, getTokens());
       dispatch({ type: "GET_ONE_CHARACTERS", payload: res.data });
     } catch (error) {
       console.log(error);
@@ -255,7 +256,7 @@ const ProductContextProvider = ({ children }) => {
     createCategory,
     getCategories,
     createProduct,
-    createCharacters,
+    createComics,
     deleteProduct,
     deleteCharacters,
 

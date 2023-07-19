@@ -1,0 +1,51 @@
+.SearchBar {
+  width: 100%;
+  margin-top: 5rem;
+}
+.SearchBar input {
+  border: none;
+  border-bottom: 2px solid black;
+  width: 97%;
+  height: 50px;
+  border-radius: 0;
+  outline: none;
+  padding-left: 1rem;
+  color: black;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 20px;
+}
+.SearchBar input:focus {
+  border: 3px solid #c6a972;
+  border-bottom: 2px solid black;
+}
+
+@media (max-width: 1500px) {
+  .SearchBar input {
+    font-size: 18px;
+    padding-left: 0.6rem;
+    width: 97%;
+  }
+}
+@media (max-width: 768px) {
+  .SearchBar input {
+    font-size: 18px;
+    padding-left: 0.6rem;
+    width: 95%;
+  }
+}
+
+@media (max-width: 426px) {
+  .SearchBar input {
+    font-size: 18px;
+    padding-left: 0.6rem;
+    width: 90%;
+  }
+}
+@media (max-width: 376px) {
+  .SearchBar input {
+    padding-left: 0.6rem;
+    width: 90%;
+  }
+}
+

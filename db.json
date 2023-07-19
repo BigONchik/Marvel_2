@@ -1,0 +1,62 @@
+{
+  "characters": [
+    {
+      "image1": "https://cdn.marvel.com/content/1x/021slq_ons_crd_03.jpg",
+      "image2": "https://cdn.marvel.com/content/1x/021slq_ons_cut_dsk_01_0.jpg",
+      "name": "star-lord",
+      "otherName": "Peter Quill ",
+      "description": "Would-be thief Peter Quill journeys through space as Star-Lord, the leader of the Guardians of the Galaxy.",
+      "id": 1
+    },
+    {
+      "image1": "https://cdn.marvel.com/content/1x/022gam_ons_crd_02.jpg",
+      "image2": "https://cdn.marvel.com/content/1x/022gam_ons_cut_dsk_01_1_1.jpg",
+      "name": "gamora",
+      "otherName": "",
+      "description": "Would-be thief Peter Quill journeys through space as Star-Lord, the leader of the Guardians of the Galaxy.",
+      "id": 2
+    },
+    {
+      "image1": "https://cdn.marvel.com/content/1x/023rra_ons_crd_04.jpg",
+      "name": "Rocket",
+      "otherName": "",
+      "id": 3,
+      "description": " Ain’t no thing like Rocket, ‘cept Rocket. He lives for the simple things, including collecting valuable bounty alongside his friend and partner, Groot. Quick to train a weapon on anyone who offends him, he’s far more formidable than he appears.",
+      "image2": "https://cdn.marvel.com/content/1x/023rra_ons_cut_dsk_01_2.jpg"
+    },
+    {
+      "image1": "https://cdn.marvel.com/content/1x/024grt_ons_crd_02.jpg",
+      "name": "Groot",
+      "otherName": "",
+      "id": 4,
+      "description": "This tree-like being branched out of his comfort zone to help the Guardians of the Galaxy keep the people of the universe safe.",
+      "image2": "https://cdn.marvel.com/content/1x/024grt_ons_cut_dsk_01_1.jpg"
+    },
+    {
+      "image1": "https://cdn.marvel.com/content/1x/284nfy_ons_crd_02.jpg",
+      "name": "Nick Fury",
+      "otherName": "",
+      "id": 5,
+      "image2": "https://cdn.marvel.com/content/1x/016nfj_ons_cut_dsk_01_1.jpg",
+      "description": "Nick Fury leads S.H.I.E.L.D. through hell and high water to combat the forces that threaten Earth from within and without."
+    },
+    {
+      "image1": "https://cdn.marvel.com/content/1x/176tls_ons_crd_02_1.jpg",
+      "name": "Talos",
+      "otherName": "",
+      "id": 6,
+      "image2": "https://cdn.marvel.com/content/1x/176tls_ons_cut_dsk_01_0.jpg",
+      "description": "An integral leader to the Skrull's offensive efforts in the bitter Kree-Skrull War, the fearsome Talos will do whatever it takes to protect his own."
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

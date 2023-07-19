@@ -32,12 +32,12 @@ const ComicsList = () => {
   }, [searchParams]);
 
   const handlePrev = () => {
-    if (currentPage == 1) return;
+    if (currentPage === 1) return;
     setCurrentPage(currentPage - 1);
   };
 
   const handleNext = () => {
-    if (currentPage == pages) return;
+    if (currentPage === pages) return;
     setCurrentPage(currentPage + 1);
   };
 
