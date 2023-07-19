@@ -127,7 +127,7 @@ const ProductContextProvider = ({ children }) => {
     console.log(newCharacters.data);
   }
 
-  async function deleteComics(id) {
+  async function deleteProduct(id) {
     try {
       await axios.delete(`${API}/comics/delete/${id}/`, getTokens());
       getProducts();
@@ -163,11 +163,11 @@ const ProductContextProvider = ({ children }) => {
     }
   }
 
-  async function updateProduct(id, editedComics) {
+  async function updateProduct(id, editedProduct) {
     try {
       await axios.patch(
         `${API}/comics/update/${id}/`,
-        editedComics,
+        editedProduct,
         getTokens()
       );
       navigate("/comics");
@@ -257,7 +257,7 @@ const ProductContextProvider = ({ children }) => {
     getCategories,
     createProduct,
     createCharacters,
-    deleteComics,
+    deleteProduct,
     deleteCharacters,
 
     getOneProduct,

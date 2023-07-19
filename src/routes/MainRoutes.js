@@ -23,7 +23,6 @@ import Cart from "../components/Cart/Cart";
 import AddComics from "../components/product/AddProduct/AddComics";
 import ComicsDetails from "../components/product/ProductDetails/ComicsDetails";
 import EditComics from "../components/product/EditComics/EditComics";
-import ComicsPage from "../pages/ComicsPage";
 import ComicsList from "../components/product/Comics/ComicsList";
 import NewsPage from "../pages/NewsPage/NewsPage";
 

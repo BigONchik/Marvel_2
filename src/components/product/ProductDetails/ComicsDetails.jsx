@@ -48,7 +48,8 @@ const ComicsDetails = () => {
   return (
     <div>
       <img width={500} src={oneProduct?.image} alt="" />
-      <h3>{oneProduct?.title}</h3>
+      <h3>{oneProduct?.name}</h3>
+      <h3>{oneProduct?.author}</h3>
       <p>{oneProduct?.category.title}</p>
       <p>{oneProduct?.price} $</p>
       <p>{oneProduct?.description}</p>
