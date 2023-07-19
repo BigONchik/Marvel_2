@@ -10,6 +10,7 @@ const AddComics = () => {
   const [description, setDescription] = useState("");
   const [amountOfPages, setAmountOfPages] = useState(0);
   const [price, setPrice] = useState("");
+  const [image, setImage] = useState(null);
   const [category, setCategory] = useState("");
 
   useEffect(() => {
@@ -17,19 +18,19 @@ const AddComics = () => {
   }, []);
 
   const handleSave = () => {
-    const newProduct = {
-      name,
-      author,
-      description,
-      amount_of_pages: amountOfPages,
-      price,
-      category,
-    };
+    const formData = new FormData();
 
-    createProduct(newProduct);
-    console.log(newProduct);
+    formData.append("name", name);
+    formData.append("author", author);
+    formData.append("description", description);
+    formData.append("image", image);
+    formData.append("price", price);
+    formData.append("amount_of_pages", amountOfPages);
+    formData.append("category", category);
+
+    createProduct(formData);
   };
-
+  console.log(image);
   console.log(categories);
 
   return (
@@ -67,6 +68,16 @@ const AddComics = () => {
           </option>
         ))}
       </Form.Select>
+      <Form.Control
+        onChange={(e) => setAmountOfPages(e.target.value)}
+        placeholder="amountof pages"
+        type="text"
+      />
+      <Form.Control
+        type="file"
+        onChange={(e) => setImage(e.target.files[0])}
+        placeholder="amountof pages"
+      />
 
       <Button className="mt-3" onClick={handleSave}>
         Create Product

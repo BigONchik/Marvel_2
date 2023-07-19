@@ -7,8 +7,13 @@ import { useAuth } from "../../../contexts/AuthContextProvider";
 import { useProduct } from "../../../contexts/ProductContextProvider";
 
 const ComicsDetails = () => {
-  const { oneComics, getOneComics, addReview, deleteReview, saveEditedReview } =
-    useProduct();
+  const {
+    oneProduct,
+    getOneProduct,
+    addReview,
+    deleteReview,
+    saveEditedReview,
+  } = useProduct();
   const { currentUser } = useAuth();
 
   const [text, setText] = useState("");
@@ -16,14 +21,14 @@ const ComicsDetails = () => {
 
   const { id } = useParams();
   useEffect(() => {
-    getOneComics(id);
+    getOneProduct(id);
   }, []);
 
   const handleAddReview = (e) => {
     e.preventDefault();
     const newReview = { text, comics: id };
     addReview(newReview);
-    getOneComics(id);
+    getOneProduct(id);
     setText("");
   };
 
@@ -42,13 +47,13 @@ const ComicsDetails = () => {
 
   return (
     <div>
-      <img width={500} src={oneComics?.image} alt="" />
-      <h3>{oneComics?.title}</h3>
-      <p>{oneComics?.category.title}</p>
-      <p>{oneComics?.price} $</p>
-      <p>{oneComics?.description}</p>
-      <Button variant={oneComics?.favorite_by_user ? "success" : "secondary"}>
-        {oneComics?.favorite_by_user
+      <img width={500} src={oneProduct?.image} alt="" />
+      <h3>{oneProduct?.title}</h3>
+      <p>{oneProduct?.category.title}</p>
+      <p>{oneProduct?.price} $</p>
+      <p>{oneProduct?.description}</p>
+      <Button variant={oneProduct?.favorite_by_user ? "success" : "secondary"}>
+        {oneProduct?.favorite_by_user
           ? "Remove from favorites"
           : "Add to Favorites"}
       </Button>
@@ -66,7 +71,7 @@ const ComicsDetails = () => {
       </form>
 
       <div>
-        {oneComics?.reviews.map((item) => (
+        {oneProduct?.reviews?.map((item) => (
           <div key={item.id} className="border m-4">
             <h5>{item.author}</h5>
             {commentToEdit && commentToEdit.id === item.id ? (

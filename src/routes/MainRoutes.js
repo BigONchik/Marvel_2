@@ -8,8 +8,6 @@ import Favorites from "../components/favorites/Favorites";
 
 import HomePage from "../pages/HomePage/HomePage";
 
-import ComicsList from "../components/product/Comics/ComicsList";
-
 import MoviesList from "../components/product/MoviesList/MoviesList";
 import CharactersList from "../components/product/Characters/CharactersList";
 import News from "../components/product/News/News";
@@ -17,6 +15,8 @@ import Cart from "../components/Cart/Cart";
 import AddComics from "../components/product/AddProduct/AddComics";
 import ComicsDetails from "../components/product/ProductDetails/ComicsDetails";
 import EditComics from "../components/product/EditComics/EditComics";
+import ComicsPage from "../pages/ComicsPage";
+import ComicsList from "../components/product/Comics/ComicsList";
 
 const MainRoutes = () => {
   return (
@@ -30,6 +30,8 @@ const MainRoutes = () => {
       <Route path="/add" element={<AddComics />} />
       <Route path="/news" element={<News />} />
       <Route path="/comics" element={<ComicsList />} />
+      <Route path="/comics/detail/:id" element={<ComicsDetails />} />
+
       <Route path="/characters" element={<CharactersList />} />
       <Route path="/movies" element={<MoviesList />} />
       <Route path="/products/:id" element={<ComicsDetails />} />
