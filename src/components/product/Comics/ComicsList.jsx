@@ -48,7 +48,7 @@ const ComicsList = () => {
       <Container className="d-flex flex-wrap justify-content-between">
         {product &&
           product.map((item) => <ProductCard key={item.id} item={item} />)}
-
+        \{" "}
         <Container>
           <Pagination>
             <Pagination.Prev onClick={handlePrev} />
